@@ -72,6 +72,20 @@
             pointer-events: none;
         }
 
+        /* Arrow */
+        .handwritten-note.arrow-left::before {
+            content: "";
+            position: absolute;
+            left: 110px;
+            top: 12px;
+            width: 90px;
+            height: 60px;
+            border-left: 4px solid #B71C1C;
+            border-bottom: 4px solid #B71C1C;
+            border-radius: 0 0 0 80px;
+            transform: rotate(-10deg);
+        }
+
         .pillar-head { background: #F9F8F6; font-family: 'Playfair Display'; font-weight: bold; font-size: 1.1rem; color: var(--fb-gold); padding: 10px 25px !important; border-bottom: 2px solid #EAEAEA !important; }
         .highlight-cell { background: rgba(147, 158, 160, 0.08); font-weight: 600; border-left: 2px solid var(--fb-pigeon); }
         
@@ -292,7 +306,7 @@
             
             <!-- THE TABLE AT THE TOP -->
             <div class="modern-table-wrap" style="color: var(--text-main); margin-bottom: 30px;">
-                <div class="handwritten-note">← We are here</div>
+                <div class="handwritten-note arrow-left">We are here</div>
                 <table class="modern-table">
                     <thead>
                         <tr>
@@ -463,6 +477,7 @@
 
 </body>
 </html>
+
 
 
 
