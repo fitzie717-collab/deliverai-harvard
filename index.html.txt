@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Mix Model™ | DeliverAI Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #F2EFE9;
+            --text-slate: #2D3339;
+            --accent-gold: #B09060;
+            --white: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-slate);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(45, 51, 57, 0.1);
+        }
+        .logo { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+
+        /* Hero Section */
+        header {
+            padding: 100px 0;
+            text-align: center;
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        header p { font-size: 1.25rem; font-style: italic; opacity: 0.8; max-width: 700px; margin: 0 auto; }
+
+        /* Section Styling */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; }
+        .section-title .divider { width: 60px; height: 3px; background: var(--accent-gold); margin: 20px auto; }
+
+        /* Problem/Solution Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+        }
+        .card h3 { margin-bottom: 15px; color: var(--accent-gold); }
+
+        /* The Big Shift Table */
+        .table-container { overflow-x: auto; margin-top: 40px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        th { background: var(--text-slate); color: var(--bg-cream); font-family: 'Inter'; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .highlight-cell { background-color: rgba(176, 144, 96, 0.1); font-weight: 600; }
+
+        /* Market Metrics */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .metric-circle {
+            border: 2px solid var(--accent-gold);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: 'Playfair Display';
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Dark Section for Contrast */
+        .dark-section {
+            background-color: var(--text-slate);
+            color: var(--bg-cream);
+        }
+        .dark-section .card { background: rgba(255,255,255,0.05); color: var(--bg-cream); border: 1px solid rgba(255,255,255,0.1); }
+        .dark-section .card h3 { color: var(--accent-gold); }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(45, 51, 57, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .market-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">DeliverAI Solutions</div>
+</nav>
+
+<header class="container">
+    <h1>The Content Mix Model™ <br>SaaS Platform</h1>
+    <p>Empowering businesses to measure, optimize, and grow in the modern content-first economy.</p>
+</header>
+
+<section class="container">
+    <div class="section-title">
+        <h2>The Big Shift</h2>
+        <div class="divider"></div>
+        <p>The future of media isn't about where it runs. It’s about what it says, who says it, and how it performs.</p>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Legacy Status Quo</th>
+                    <th>Content Mix Model™ State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primary Variable</td>
+                    <td>Channel / Placement</td>
+                    <td class="highlight-cell">Creative DNA & Content Elements</td>
+                </tr>
+                <tr>
+                    <td>Identity Resolution</td>
+                    <td>Probabilistic / Cookie-based</td>
+                    <td class="highlight-cell">Deterministic (260M Verified IDs)</td>
+                </tr>
+                <tr>
+                    <td>Measurement</td>
+                    <td>Siloed (Digital vs. Offline)</td>
+                    <td class="highlight-cell">Unified Omnichannel (Radio to Web)</td>
+                </tr>
+                <tr>
+                    <td>Data Ownership</td>
+                    <td>Fragmented & Rented</td>
+                    <td class="highlight-cell">Sovereign & Permanent Internal Asset</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="dark-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 style="color: white;">The Problem</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Black Box Reporting</h3>
+                <p>Each walled garden shows its slice—with no creative-level transparency or cross-platform view.</p>
+            </div>
+            <div class="card">
+                <h3>Legacy MMM is Slow</h3>
+                <p>Runs on quarterly timelines, overlooking high-growth formats like audio, influencer, and podcasts.</p>
+            </div>
+            <div class="card">
+                <h3>Privacy Constraints</h3>
+                <p>iOS ATT and cookie deprecation have eliminated user-level tracking. Legacy models cannot adapt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-title">
+        <h2>Market Opportunity</h2>
+        <div class="divider"></div>
+    </div>
+    <div class="market-grid">
+        <div>
+            <div class="metric-circle">$7.5B</div>
+            <h4>TAM</h4>
+            <p style="font-size: 0.8rem;">Marketing Analytics & Measurement Technology</p>
+        </div>
+        <div>
+            <div class="metric-circle">$4.5B</div>
+            <h4>SAM</h4>
+            <p style="font-size: 0.8rem;">Privacy-Safe Unified Attribution Platforms</p>
+        </div>
+        <div>
+            <div class="metric-circle">$2.5B</div>
+            <h4>SOM</h4>
+            <p style="font-size: 0.8rem;">Audio, Podcast & Creator Measurement</p>
+        </div>
+    </div>
+</section>
+
+<section class="dark-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 style="color: white;">Founder-Problem Fit</h2>
+            <div class="divider"></div>
+            <p>I build measurement systems where everyone else says measurement is impossible.</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>For 15+ years, DeliverAI's leadership has been brought in to measure what organizations believe cannot be measured—from the first-ever resource allocation frameworks for the U.S. Attorney’s Office to enterprise-grade marketing databases at Goldman Sachs.</p>
+            <br>
+            <p><strong>2025:</strong> Filed patent and founded DeliverAI Solutions to solve the structural failure of content attribution.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-title">
+        <h2>Deployment Options</h2>
+        <div class="divider"></div>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <h3>Customer-Hosted (Docker)</h3>
+            <p><strong>Ideal for:</strong> Large Enterprises</p>
+            <ul>
+                <li>Inside your environment</li>
+                <li>Maximum privacy & compliance</li>
+                <li>Customer-owned data storage</li>
+            </ul>
+        </div>
+        <div class="card" style="border: 2px solid var(--accent-gold);">
+            <h3>DeliverAI-Hosted (SaaS)</h3>
+            <p><strong>Ideal for:</strong> Mid-market / Agencies</p>
+            <ul>
+                <li>Managed by DeliverAI</li>
+                <li>Fastest time to launch</li>
+                <li>Zero infrastructure overhead</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 DeliverAI Solutions Corp. All Rights Reserved.</p>
+        <p>Content Mix Model™ is a registered trademark. System & Method for Content-Based Attribution (Patent Pending).</p>
+    </div>
+</footer>
+
+</body>
+</html>
