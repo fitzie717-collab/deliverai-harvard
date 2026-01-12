@@ -65,35 +65,11 @@
             font-family: 'Reenie Beanie', cursive;
             font-size: 2.8rem;
             color: #B71C1C; /* A subtle "ink red" */
-            left: -130px;
-            top: 50%; /* Adjusted to sit between Digital and Creative */
-            transform: translateY(-50%) rotate(-5deg);
-            z-index: 50;
-            white-space: nowrap;
+            left: 20px;
+            top: 60%; /* Adjusted to sit between Digital and Creative */
+            transform: rotate(-3deg);
+            z-index: 10;
             pointer-events: none;
-        }
-
-        /* Curved arrow shaft */
-        .handwritten-note::before {
-            content: "";
-            position: absolute;
-            bottom: -50px; /* Positions it below the text */
-            right: -60px;  /* Moves it toward the table */
-            width: 100px;
-            height: 80px;
-            
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23E23E28' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10,10 C10,50 30,70 80,70' /%3E%3Cpath d='M65,55 L82,70 L65,85' /%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: contain;
-            transform: rotate(10deg);
-
-        .modern-table-wrap { 
-            overflow: visible !important; 
-        }
-        /* Adjusting the note's position specifically for your table layout */
-        .arrow-left {
-            left: -160px;
-            top: 245px; /* Aligned near Digital/Creative */
         }
 
         .pillar-head { background: #F9F8F6; font-family: 'Playfair Display'; font-weight: bold; font-size: 1.1rem; color: var(--fb-gold); padding: 10px 25px !important; border-bottom: 2px solid #EAEAEA !important; }
@@ -316,7 +292,7 @@
             
             <!-- THE TABLE AT THE TOP -->
             <div class="modern-table-wrap" style="color: var(--text-main); margin-bottom: 30px;">
-                <div class="handwritten-note arrow-left">We are here</div>
+                <div class="handwritten-note">← We are here</div>
                 <table class="modern-table">
                     <thead>
                         <tr>
@@ -487,10 +463,6 @@
 
 </body>
 </html>
-
-
-
-
 
 
 
