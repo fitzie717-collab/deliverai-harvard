@@ -5,504 +5,409 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DeliverAI | Client Solutions Deck</title>
 
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- TAILWIND (For rendering your React UI exactly) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ICONS -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
+/* --- CORE DECK STYLES --- */
 :root {
-  --bancha: #4B4D3B;          /* Deep Olive */
-  --hague-blue: #2F3C48;      /* Deep Teal/Blue */
-  --pointing: #F1F0E8;        /* Off White */
-  --school-house: #E4DED0;    /* Aged Cream */
-  --gold-leaf: #C5A059;       /* Gold Leaf */
-  --alert-red: #A16B6B;       /* Muted Red */
-  --tech-green: #4ade80;      /* Matrix Green */
+  --bancha: #4B4D3B;
+  --hague-blue: #2F3C48;
+  --pointing: #F1F0E8;
+  --gold-leaf: #C5A059;
 }
 
-/* 1. CORE LAYOUT */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; line-height: 1.6; background: var(--pointing); color: var(--hague-blue); -webkit-font-smoothing: antialiased; }
-
-section.slide {
-  min-height: 100vh;
-  width: 100vw;
-  scroll-snap-align: start;
-  position: relative;
-  padding: 4vh 5%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; 
-}
-
-.content-wrapper {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    flex-grow: 1;
+/* Override Tailwind defaults for the specific presentation slides */
+.deck-section {
+    min-height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+    padding: 4vh 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow: hidden; 
+    box-sizing: border-box;
 }
 
-/* 2. TYPOGRAPHY SYSTEM */
-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--pointing); }
 
-.header-pre {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.8rem;
-    display: block;
-    margin-bottom: 12px;
-}
+/* Typography */
+h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; margin: 0; }
+h2.deck-head { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; }
+.deck-pre { font-family: 'Inter', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; display: block; margin-bottom: 12px; }
 
-/* 3. COLORS */
+/* Themes */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
 .bg-hague { background: var(--hague-blue); color: var(--pointing); }
-.bg-pointing { background: var(--pointing); color: var(--hague-blue); }
-.bg-school { background: var(--school-house); color: var(--hague-blue); }
-
+.bg-school { background: #E4DED0; color: var(--hague-blue); }
 .text-gold { color: var(--gold-leaf); }
-.text-blue { color: var(--hague-blue); }
 
-/* 4. MACBOOK PRO MOCKUP */
+/* --- MACBOOK PRO MOCKUP (CSS) --- */
 .macbook {
-    width: 90%;
-    max-width: 1400px; 
-    margin: 0 auto;
-    perspective: 2000px;
+    width: 90%; max-width: 1400px; margin: 0 auto; perspective: 2000px;
 }
 .screen-frame {
-    background: #0d0d0d;
-    border-radius: 20px 20px 0 0;
-    padding: 3% 2% 0 2%;
-    position: relative;
-    box-shadow: inset 0 0 0 2px #333;
-    z-index: 2;
+    background: #0d0d0d; border-radius: 20px 20px 0 0; padding: 2% 1.5% 0 1.5%;
+    position: relative; box-shadow: inset 0 0 0 2px #333; z-index: 2;
 }
 .camera-notch {
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
     width: 12%; height: 25px; background: #0d0d0d;
-    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
-    z-index: 10; display: flex; justify-content: center; align-items: center;
+    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
 }
-.camera-lens { width: 6px; height: 6px; background: #1a1a1a; border-radius: 50%; box-shadow: inset 0 0 2px #000; }
 .screen-content {
-    background: #1e1e1e;
-    aspect-ratio: 16/10;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+    background: #F1EDE8; /* Your UI Background Color */
+    aspect-ratio: 16/10; width: 100%; position: relative; overflow: hidden;
     border-radius: 4px 4px 0 0;
 }
 .macbook-base {
     background: linear-gradient(to bottom, #dcdcdc 0%, #b0b0b0 100%);
     height: 24px; width: 100%; border-radius: 0 0 20px 20px;
-    position: relative; z-index: 1; box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-.trackpad-cutout {
-    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 15%; height: 8px; background: #c0c0c0;
-    border-radius: 0 0 5px 5px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* 5. DASHBOARD UI STYLES */
-.dash-slide {
+/* --- ANIMATED UI LAYERS --- */
+.ui-layer {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0; transition: opacity 0.8s ease-in-out;
-    background: #121212; /* Darker background for contrast */
-    color: white; display: flex; flex-direction: column;
+    opacity: 0; transition: opacity 0.8s ease;
+    overflow-y: hidden; padding: 20px;
 }
-.dash-slide.active { opacity: 1; z-index: 5; }
+.ui-layer.active { opacity: 1; z-index: 10; }
 
-.ui-nav {
-    height: 8%; border-bottom: 1px solid #333;
-    display: flex; align-items: center; padding: 0 3%; justify-content: space-between;
-    background: #1a1a1a;
-}
-.ui-body { height: 92%; padding: 3%; position: relative; }
+/* Specific Animation: Bar Charts Loading */
+.bar-fill { width: 0; transition: width 1.5s ease-out; }
+.ui-layer.active .bar-fill { width: var(--target-width); }
 
-/* SCREEN 1: OPTIMIZATION FLOW ANIMATION */
-.flow-container {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; height: 100%; gap: 40px; align-items: center;
-}
-.flow-col { display: flex; flex-direction: column; gap: 20px; }
-.flow-card {
-    background: #1e1e1e; border: 1px solid #333; padding: 15px; border-radius: 8px;
-    position: relative; overflow: hidden;
-}
-.flow-card h6 { font-size: 0.7vw; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-.flow-card .val { font-size: 1.2vw; font-weight: 700; }
+/* Specific Animation: Text Typing */
+.typewriter { overflow: hidden; white-space: nowrap; border-right: 2px solid #B89354; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #B89354; } }
 
-/* The Engine Node (Center) */
-.ai-engine {
-    width: 100%; aspect-ratio: 1; border-radius: 50%;
-    border: 2px solid var(--gold-leaf);
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    box-shadow: 0 0 50px rgba(197, 160, 89, 0.1);
-    background: radial-gradient(circle, rgba(197,160,89,0.1) 0%, rgba(0,0,0,1) 100%);
-    position: relative;
-}
-.pulse-ring {
-    position: absolute; width: 100%; height: 100%; border-radius: 50%;
-    border: 1px solid var(--gold-leaf); opacity: 0;
-    animation: pulse 2s infinite;
-}
-@keyframes pulse { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.4); opacity: 0; } }
+/* Button Pulse */
+.pulse-btn { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(184, 147, 84, 0.7); } 70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(184, 147, 84, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(184, 147, 84, 0); } }
 
-/* Animated Pipes */
-.pipe-svg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
-}
-.flow-line {
-    fill: none; stroke: #333; stroke-width: 2;
-}
-.flow-particle {
-    fill: var(--gold-leaf);
-    animation: flowMove 2s infinite linear;
-}
-@keyframes flowMove { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
-
-/* SCREEN 2: MEDIA PLAN GANTT */
-.gantt-grid { display: grid; grid-template-columns: 150px 1fr; height: 100%; gap: 20px; }
-.gantt-sidebar { display: flex; flex-direction: column; gap: 30px; padding-top: 50px; }
-.channel-row { display: flex; align-items: center; gap: 10px; font-size: 0.9vw; font-weight: 700; color: #ccc; }
-.gantt-timeline { position: relative; border-left: 1px solid #333; padding-top: 50px; }
-.month-marker { 
-    position: absolute; top: 0; font-size: 0.7vw; color: #666; text-transform: uppercase; 
-}
-.gantt-bar {
-    height: 40px; border-radius: 6px; margin-bottom: 30px; position: relative;
-    background: linear-gradient(90deg, var(--gold-leaf) 0%, #a38241 100%);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    display: flex; align-items: center; padding-left: 15px;
-    font-size: 0.7vw; color: black; font-weight: 800; letter-spacing: 0.05em;
-    opacity: 0; animation: slideIn 0.8s forwards ease-out;
-}
-@keyframes slideIn { from { width: 0; opacity: 0; } to { opacity: 1; } }
-
-/* Controls */
-.slide-indicator { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
-.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.2); border-radius: 50%; transition: 0.3s; cursor: pointer; }
-.dot.active { background: var(--gold-leaf); width: 40px; border-radius: 10px; }
-
-.footer-mark { position: absolute; bottom: 30px; right: 7%; font-size: 0.55rem; letter-spacing: 4px; font-weight: 700; opacity: 0.5; text-transform: uppercase; }
 </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1: INTRO (DARK OLIVE) -->
-<section class="slide bg-olive">
-  <div class="content-wrapper">
-    <h4 class="header-pre text-gold">The Content Mix Model™</h4>
-    <h1>Stop Guessing.<br>Start Scaling.</h1>
-    <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin: 40px 0; max-width: 900px;">
-      <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300; line-height: 1.4;">
-        The first <span style="font-weight: 700; color: white;">Desktop Agency Operating System</span> that unifies Planning, Buying, and Creative Intelligence into a single data spine.
-      </p>
+<!-- SLIDE 1: INTRO -->
+<section class="deck-section bg-olive">
+    <div class="max-w-[1400px] w-full mx-auto flex flex-col justify-center h-full">
+        <span class="deck-pre text-gold">The Content Mix Model™</span>
+        <h1 class="deck-title">Stop Guessing.<br>Start Scaling.</h1>
+        <div class="border-l-2 border-[#C5A059] pl-8 my-10 max-w-4xl">
+            <p class="text-2xl font-light leading-relaxed">
+                The first <span class="font-bold text-white">Desktop Agency Operating System</span> that unifies Planning, Buying, and Creative Intelligence into a single data spine.
+            </p>
+        </div>
+        <div class="flex gap-10 mt-10">
+            <div><p class="font-serif text-xl italic">Deterministic Attribution</p></div>
+            <div><p class="font-serif text-xl italic">Automated Buying</p></div>
+            <div><p class="font-serif text-xl italic">Creative Scanning</p></div>
+        </div>
     </div>
-    <div style="display: flex; gap: 40px; margin-top: 5vh;">
-        <div><p style="font-family: 'Playfair Display'; font-size: 1.2rem;">Deterministic Attribution</p></div>
-        <div><p style="font-family: 'Playfair Display'; font-size: 1.2rem;">Automated Buying</p></div>
-        <div><p style="font-family: 'Playfair Display'; font-size: 1.2rem;">Creative Scanning</p></div>
-    </div>
-  </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
-<!-- SLIDE 2: THE BLACK HOLE (NEW - HIGH IMPACT) -->
-<section class="slide bg-hague">
-  <div class="content-wrapper">
-    <div style="display: flex; align-items: baseline; gap: 15px;">
-        <h4 class="header-pre text-gold">Market Reality</h4>
-        <h2 style="color: var(--pointing);">The $620B Black Hole</h2>
+<!-- SLIDE 2: THE BLACK HOLE -->
+<section class="deck-section bg-hague">
+  <div class="max-w-[1400px] w-full mx-auto flex flex-col justify-center h-full">
+    <div class="flex items-baseline gap-4 mb-2">
+        <h4 class="deck-pre text-gold">Market Reality</h4>
+        <h2 class="deck-head text-[#F1F0E8]">The $620B Black Hole</h2>
     </div>
-    <p style="color: var(--pointing); max-width: 800px; margin-bottom: 40px; opacity: 0.8;">
-        You aren't just losing money to bad creative. You are losing it to the machinery of the advertising ecosystem itself.
-    </p>
-
+    
     <!-- WASTE GRID -->
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1);">
-        
-        <!-- CARD 1 -->
-        <div style="background: #1a2329; padding: 40px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: -20px; right: -20px; font-size: 8rem; font-weight: 800; color: #000; opacity: 0.3;">25%</div>
-            <h5 class="header-pre text-gold">The Invisible Tax</h5>
-            <h3 style="font-size: 3rem; color: white; line-height: 1; margin: 15px 0;">25%</h3>
-            <p style="color: white; opacity: 0.7; font-size: 0.9rem;">Of global ad spend is consumed by <b>Bot Traffic & Ad Fraud</b>. </p>
-            <p style="color: var(--alert-red); font-size: 0.75rem; margin-top: 10px; font-weight: 700;">IMPACT: $1 in every $4 you spend is fake.</p>
+    <div class="grid grid-cols-3 gap-[1px] bg-white/10 border border-white/10 mt-10">
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden group">
+            <h5 class="deck-pre text-gold">The Invisible Tax</h5>
+            <h3 class="text-6xl text-white font-light my-4">25%</h3>
+            <p class="text-white/70 text-sm">Of global ad spend is consumed by <b>Bot Traffic & Ad Fraud</b>.</p>
+            <p class="text-[#A16B6B] text-xs font-bold mt-4">IMPACT: $1 in every $4 you spend is fake.</p>
         </div>
-
-        <!-- CARD 2 -->
-        <div style="background: #1a2329; padding: 40px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: -20px; right: -20px; font-size: 8rem; font-weight: 800; color: #000; opacity: 0.3;">91+</div>
-            <h5 class="header-pre text-gold">The Integration Tax</h5>
-            <h3 style="font-size: 3rem; color: white; line-height: 1; margin: 15px 0;">91+</h3>
-            <p style="color: white; opacity: 0.7; font-size: 0.9rem;">Vendors in the average marketing stack. Data is trapped in silos.</p>
-            <p style="color: var(--alert-red); font-size: 0.75rem; margin-top: 10px; font-weight: 700;">IMPACT: You have no single view of truth.</p>
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden">
+            <h5 class="deck-pre text-gold">The Integration Tax</h5>
+            <h3 class="text-6xl text-white font-light my-4">91+</h3>
+            <p class="text-white/70 text-sm">Vendors in the average marketing stack. Data is trapped in silos.</p>
+            <p class="text-[#A16B6B] text-xs font-bold mt-4">IMPACT: No single view of truth.</p>
         </div>
-
-        <!-- CARD 3 -->
-        <div style="background: #1a2329; padding: 40px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: -20px; right: -20px; font-size: 8rem; font-weight: 800; color: #000; opacity: 0.3;">0</div>
-            <h5 class="header-pre text-gold">The Confidence Tax</h5>
-            <h3 style="font-size: 3rem; color: white; line-height: 1; margin: 15px 0;">Zero</h3>
-            <p style="color: white; opacity: 0.7; font-size: 0.9rem;">Real-time visibility. Most brands rely on 90-day retroactive reports.</p>
-            <p style="color: var(--alert-red); font-size: 0.75rem; margin-top: 10px; font-weight: 700;">IMPACT: You are driving with your eyes closed.</p>
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden">
+            <h5 class="deck-pre text-gold">The Confidence Tax</h5>
+            <h3 class="text-6xl text-white font-light my-4">Zero</h3>
+            <p class="text-white/70 text-sm">Real-time visibility. Most brands rely on 90-day retroactive reports.</p>
+            <p class="text-[#A16B6B] text-xs font-bold mt-4">IMPACT: Driving with eyes closed.</p>
         </div>
-
     </div>
   </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
-<!-- SLIDE 3: THE SOLUTION (IMPROVED MACBOOK) -->
-<section class="slide bg-school" style="justify-content: flex-start; padding-top: 5vh;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <h4 class="header-pre text-gold">The Platform</h4>
-        <h2 style="color: var(--hague-blue); margin: 0;">The "Optimal Path" Visualization</h2>
+<!-- SLIDE 3: YOUR REAL UI ANIMATION -->
+<section class="deck-section bg-school pt-[5vh] justify-start">
+    <div class="text-center mb-8">
+        <h4 class="deck-pre text-gold">The Platform</h4>
+        <h2 class="deck-head text-[#2F3C48] m-0">The Optimizer Engine</h2>
     </div>
 
-    <!-- MACBOOK CONTAINER -->
+    <!-- MACBOOK WRAPPER -->
     <div class="macbook">
         <div class="screen-frame">
-            <div class="camera-notch"><div class="camera-lens"></div></div>
-            <div class="screen-content">
+            <div class="camera-notch"></div>
+            <div class="screen-content group">
                 
-                <!-- VIEW 1: OPTIMAL PATH (BUDGET FLOW) -->
-                <div class="dash-slide active" id="slide-1">
-                    <div class="ui-nav">
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <i data-lucide="git-merge" color="#C5A059"></i>
-                            <span style="font-weight: 700; font-size: 0.9vw;">Budget Optimization Flow</span>
+                <!-- === PORTED REACT UI START === -->
+                <!-- This matches your provided InMarketOptimizer component structure exactly -->
+                
+                <!-- SCENE 1: HERO & OPPORTUNITY (Active) -->
+                <div class="ui-layer active flex flex-col justify-between" id="scene-1">
+                     <!-- HEADER -->
+                     <header class="flex justify-between items-end border-b border-[#2A3236]/10 pb-6 mb-4">
+                        <div class="space-y-1">
+                            <span class="border border-[#B89354] text-[#B89354] uppercase tracking-widest text-[0.6rem] font-black px-2 py-1 rounded-sm">In-Market Arbitrage</span>
+                            <h1 class="text-5xl tracking-tighter font-serif italic text-[#2A3236]">Optimizer.</h1>
                         </div>
-                        <div style="font-size: 0.7vw; opacity: 0.7;">AI REALLOCATION ACTIVE</div>
-                    </div>
-                    
-                    <div class="ui-body" style="padding: 40px;">
-                        
-                        <!-- SVG PIPES (Background) -->
-                        <svg class="pipe-svg">
-                            <!-- Paths from Left to Center -->
-                            <path id="path1" d="M 100 100 C 300 100, 300 250, 500 250" fill="none" stroke="#333" stroke-width="2" />
-                            <path id="path2" d="M 100 250 C 300 250, 300 250, 500 250" fill="none" stroke="#333" stroke-width="2" />
-                            <path id="path3" d="M 100 400 C 300 400, 300 250, 500 250" fill="none" stroke="#333" stroke-width="2" />
-                            
-                            <!-- Paths from Center to Right -->
-                            <path id="path4" d="M 500 250 C 700 250, 700 100, 900 100" fill="none" stroke="#333" stroke-width="2" />
-                            <path id="path5" d="M 500 250 C 700 250, 700 400, 900 400" fill="none" stroke="#333" stroke-width="2" />
-
-                            <!-- Animated Particles -->
-                            <circle r="4" class="flow-particle"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path1"/></animateMotion></circle>
-                            <circle r="4" class="flow-particle" style="animation-delay: 0.5s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path2"/></animateMotion></circle>
-                            <circle r="4" class="flow-particle" style="animation-delay: 1s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path3"/></animateMotion></circle>
-                            
-                            <!-- Success Particles -->
-                            <circle r="4" fill="#4ade80" style="animation: flowMove 1.5s infinite linear"><animateMotion dur="1.5s" repeatCount="indefinite"><mpath href="#path4"/></animateMotion></circle>
-                        </svg>
-
-                        <div class="flow-container" style="position: relative; z-index: 2;">
-                            <!-- COL 1: SOURCES -->
-                            <div class="flow-col">
-                                <div class="flow-card" style="border-left: 3px solid #ef4444;">
-                                    <h6>Inefficient Spend</h6>
-                                    <div class="val">$42,000</div>
-                                    <div style="font-size: 0.7vw; opacity: 0.6;">Meta (Formulaic Creative)</div>
-                                </div>
-                                <div class="flow-card">
-                                    <h6>Standard Spend</h6>
-                                    <div class="val">$18,500</div>
-                                    <div style="font-size: 0.7vw; opacity: 0.6;">Display Retargeting</div>
-                                </div>
-                                <div class="flow-card" style="border-left: 3px solid #ef4444;">
-                                    <h6>Inefficient Spend</h6>
-                                    <div class="val">$12,000</div>
-                                    <div style="font-size: 0.7vw; opacity: 0.6;">Linear TV</div>
-                                </div>
-                            </div>
-
-                            <!-- COL 2: AI BRAIN -->
-                            <div class="flow-col" style="justify-content: center; align-items: center;">
-                                <div class="ai-engine">
-                                    <div class="pulse-ring"></div>
-                                    <i data-lucide="zap" color="#C5A059" size="40"></i>
-                                    <div style="font-size: 0.8vw; margin-top: 10px; font-weight: 700; color: var(--gold-leaf);">OPTIMIZING</div>
-                                </div>
-                            </div>
-
-                            <!-- COL 3: OUTCOME -->
-                            <div class="flow-col">
-                                <div class="flow-card" style="border-left: 3px solid #4ade80;">
-                                    <h6 style="color: #4ade80;">Reallocated: CTV</h6>
-                                    <div class="val text-gold">$35,000</div>
-                                    <div style="font-size: 0.7vw; opacity: 0.6;">Projected Lift: 4.2x ROAS</div>
-                                </div>
-                                <div class="flow-card" style="border-left: 3px solid #4ade80;">
-                                    <h6 style="color: #4ade80;">Reallocated: Audio</h6>
-                                    <div class="val text-gold">$28,000</div>
-                                    <div style="font-size: 0.7vw; opacity: 0.6;">Projected Lift: 3.8x ROAS</div>
-                                </div>
-                            </div>
+                        <div class="text-right">
+                            <p class="text-[0.6rem] font-sans font-black uppercase tracking-widest opacity-30 mb-1">Forecasted Gain</p>
+                            <p class="text-4xl tracking-tighter font-serif italic text-[#B89354]">+14.2%</p>
                         </div>
+                     </header>
 
-                    </div>
+                     <!-- REALLOCATION BOX -->
+                     <section class="bg-[#E6E0D8] border-l-4 border-[#B89354] p-8 flex justify-between items-center gap-6 shadow-sm mb-6">
+                        <div class="flex-grow space-y-4">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="zap" size="14" class="text-[#B89354]"></i>
+                                <h2 class="text-[0.6rem] font-sans font-black uppercase tracking-widest text-[#B89354]">AI Opportunity Detected</h2>
+                            </div>
+                            <p class="text-xl font-serif italic text-gray-800 leading-snug">
+                                "Shift <span class="font-bold text-[#B89354]">$15,000</span> from <span class="opacity-60 underline decoration-dotted">Modern Parents</span> to <span class="text-black underline decoration-[#B89354]">Gen-Z Awareness</span>."
+                            </p>
+                        </div>
+                        <button id="auth-btn" class="pulse-btn font-sans font-black text-[0.6rem] uppercase tracking-[0.2em] bg-[#2A3236] text-white py-4 px-8 flex items-center gap-2 shadow-xl hover:scale-95 transition-all">
+                            <i data-lucide="lock" size="12"></i> Authorize Shift
+                        </button>
+                     </section>
+
+                     <!-- HINT TEXT -->
+                     <div class="mt-auto text-center opacity-40 text-[0.6rem] uppercase tracking-widest">
+                         Simulating User Authorization...
+                     </div>
                 </div>
 
-                <!-- VIEW 2: MEDIA PLAN GANTT -->
-                <div class="dash-slide" id="slide-2">
-                     <div class="ui-nav">
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <i data-lucide="calendar-range" color="#C5A059"></i>
-                            <span style="font-weight: 700; font-size: 0.9vw;">Cross-Channel Activation Plan</span>
-                        </div>
-                        <div style="font-size: 0.7vw; opacity: 0.7;">Q4 FLIGHTING STRATEGY</div>
-                    </div>
-                    <div class="ui-body">
-                        <div class="gantt-grid">
-                            <!-- Sidebar -->
-                            <div class="gantt-sidebar">
-                                <div class="channel-row"><i data-lucide="tv" size="14"></i> CTV/OTT</div>
-                                <div class="channel-row"><i data-lucide="instagram" size="14"></i> Social</div>
-                                <div class="channel-row"><i data-lucide="headphones" size="14"></i> Audio</div>
-                                <div class="channel-row"><i data-lucide="mail" size="14"></i> Email</div>
-                            </div>
-                            
-                            <!-- Bars -->
-                            <div class="gantt-timeline">
-                                <!-- Markers -->
-                                <div class="month-marker" style="left: 0;">Oct 1</div>
-                                <div class="month-marker" style="left: 33%;">Nov 1</div>
-                                <div class="month-marker" style="left: 66%;">Dec 1</div>
-
-                                <!-- Bar 1 -->
-                                <div class="gantt-bar" style="width: 40%; margin-left: 0;">AWARENESS BLITZ (HULU)</div>
-                                <!-- Bar 2 -->
-                                <div class="gantt-bar" style="width: 60%; margin-left: 20%; background: #2F3C48; color: white; border: 1px solid var(--gold-leaf);">RETARGETING (IG/TIKTOK)</div>
-                                <!-- Bar 3 -->
-                                <div class="gantt-bar" style="width: 30%; margin-left: 10%;">PODCAST HOST READS</div>
-                                <!-- Bar 4 -->
-                                <div class="gantt-bar" style="width: 80%; margin-left: 20%; background: #333; color: white;">LOYALTY SEQUENCING</div>
-                                
-                                <!-- Playhead -->
-                                <div style="position: absolute; top: 0; left: 25%; height: 100%; border-left: 2px dashed var(--gold-leaf);">
-                                    <div style="background: var(--gold-leaf); color: black; font-size: 0.6vw; padding: 2px 6px; position: absolute; top: -20px; left: -25px; font-weight: 700; border-radius: 4px;">TODAY</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VIEW 3: CREATIVE SCANNER (Kept simple) -->
-                <div class="dash-slide" id="slide-3">
-                    <div class="ui-nav">
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <i data-lucide="scan-face" color="#C5A059"></i>
-                            <span style="font-weight: 700; font-size: 0.9vw;">Creative DNA Analysis</span>
-                        </div>
-                    </div>
-                    <div class="ui-body" style="display: flex; align-items: center; justify-content: center;">
-                         <div style="background: black; padding: 40px; border-radius: 12px; text-align: center;">
-                            <i data-lucide="aperture" size="64" class="text-gold" style="animation: spin 4s infinite linear;"></i>
-                            <p style="margin-top: 20px; font-size: 1vw;">Scanning 402 Creative Assets...</p>
-                            <p style="color: #666; font-size: 0.8vw;">Tagging: Sentiment, Color Grade, Hook Velocity</p>
+                <!-- SCENE 2: LEDGER (Inactive initially) -->
+                <div class="ui-layer bg-[#2A3236] text-[#F1EDE8] flex flex-col p-0" id="scene-2">
+                     <div class="p-8 border-b border-white/5 flex justify-between items-center bg-white/5">
+                         <div class="flex items-center gap-4">
+                            <i data-lucide="bar-chart-3" class="text-[#B89354]" size="20"></i>
+                            <h3 class="text-[0.6rem] font-sans font-black uppercase tracking-[0.2em]">Campaign Performance Ledger</h3>
                          </div>
+                         <div class="flex gap-4 text-[0.6rem] font-sans font-bold uppercase opacity-40">
+                            <span>Live Data</span> • <span>Updated 1s ago</span>
+                         </div>
+                     </div>
+                     <table class="w-full text-left">
+                        <thead class="border-b border-white/5 bg-black/20 text-[0.5rem] font-sans font-black uppercase tracking-widest text-[#B89354]">
+                            <tr>
+                                <th class="p-6 font-normal opacity-70">Campaign Name</th>
+                                <th class="p-6 font-normal opacity-70 text-center">iROAS</th>
+                                <th class="p-6 font-normal opacity-70">Audience Fatigue</th>
+                                <th class="p-6 font-normal opacity-70 text-right">Directive</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-sm">
+                            <!-- ROW 1 -->
+                            <tr class="bg-white/5">
+                                <td class="p-6">
+                                    <h4 class="text-lg font-serif italic">Gen-Z Awareness Blitz</h4>
+                                    <p class="text-[0.6rem] font-mono text-white/20">Spend: $42,000</p>
+                                </td>
+                                <td class="p-6 text-center"><span class="text-xl font-serif font-bold text-white">4.8x</span></td>
+                                <td class="p-6 w-1/3">
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div class="bar-fill h-full bg-[#B89354]" style="--target-width: 12%;"></div>
+                                    </div>
+                                    <span class="text-[0.6rem] opacity-50">12%</span>
+                                </td>
+                                <td class="p-6 text-right">
+                                    <button class="bg-[#B89354] text-[#2A3236] px-4 py-2 text-[0.6rem] font-black uppercase tracking-widest ml-auto flex items-center gap-2">
+                                        <i data-lucide="trending-up" size="10"></i> Scale
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- ROW 2 -->
+                            <tr>
+                                <td class="p-6">
+                                    <h4 class="text-lg font-serif italic">Modern Parents Trust</h4>
+                                    <p class="text-[0.6rem] font-mono text-white/20">Spend: $31,000</p>
+                                </td>
+                                <td class="p-6 text-center"><span class="text-xl font-serif font-bold text-[#A16B6B]">1.9x</span></td>
+                                <td class="p-6 w-1/3">
+                                    <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                        <div class="bar-fill h-full bg-[#A16B6B]" style="--target-width: 92%;"></div>
+                                    </div>
+                                    <span class="text-[0.6rem] opacity-50">92%</span>
+                                </td>
+                                <td class="p-6 text-right">
+                                    <button class="bg-[#A16B6B] text-white px-4 py-2 text-[0.6rem] font-black uppercase tracking-widest ml-auto flex items-center gap-2">
+                                        <i data-lucide="ban" size="10"></i> Stop
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                     </table>
+                </div>
+
+                <!-- SCENE 3: DIAGNOSIS (Inactive initially) -->
+                <div class="ui-layer flex flex-col justify-center px-12 space-y-8" id="scene-3">
+                    <div class="flex items-center gap-4 text-[#2A3236]/40">
+                        <i data-lucide="history" size="16"></i>
+                        <h3 class="text-[0.6rem] font-sans font-black uppercase tracking-[0.3em]">AI Creative Diagnosis</h3>
+                    </div>
+                    <div class="pl-6 border-l-2 border-[#B89354]/20">
+                        <h5 class="text-[0.6rem] font-sans font-black uppercase tracking-widest text-[#B89354] mb-2">Modern Parents Trust</h5>
+                        <p class="text-xl italic text-[#2A3236] leading-relaxed opacity-80" id="type-text">
+                            <!-- JS will toggle class here -->
+                            "Terminal frequency reached. Asset is now 'Formulaic' and left-brain heavy; audience is actively ignoring."
+                        </p>
+                    </div>
+                    <div class="pl-6 border-l-2 border-[#B89354]/20">
+                        <h5 class="text-[0.6rem] font-sans font-black uppercase tracking-widest text-[#B89354] mb-2">Recommendation</h5>
+                         <p class="text-xl italic text-[#2A3236] leading-relaxed opacity-80">
+                            Reverting to heritage narrative for Q4.
+                        </p>
                     </div>
                 </div>
+                
+                <!-- === END PORTED UI === -->
 
             </div>
         </div>
-        <div class="macbook-base"><div class="trackpad-cutout"></div></div>
-    </div>
-
-    <!-- CONTROLS -->
-    <div class="slide-indicator">
-        <div class="dot active" onclick="setSlide(1)"></div>
-        <div class="dot" onclick="setSlide(2)"></div>
-        <div class="dot" onclick="setSlide(3)"></div>
+        <div class="macbook-base"></div>
     </div>
 </section>
 
-<!-- SLIDE 4: PRICING (DARK OLIVE) -->
-<section class="slide bg-olive">
-    <div class="content-wrapper">
-        <h4 class="header-pre text-gold">Partnership Models</h4>
-        <h2 style="color: var(--pointing); margin-bottom: 40px;">Transparent Pricing. Tangible ROI.</h2>
-        <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; color: var(--hague-blue);">
-                <tr style="background: var(--hague-blue); color: white;">
-                    <th style="padding: 20px; text-align: left;">Tier</th>
-                    <th style="padding: 20px; text-align: center;">Fee Structure</th>
-                    <th style="padding: 20px; text-align: left; background: var(--gold-leaf);">Est. Annual Savings</th>
-                </tr>
-                <tr style="border-bottom: 1px solid #EEE;">
-                    <td style="padding: 25px;"><b>High Growth</b><br><span style="font-size: 0.8rem; opacity: 0.6;">$1M - $5M Spend</span></td>
-                    <td style="padding: 25px; text-align: center;">5% Platform Fee</td>
-                    <td style="padding: 25px; background: rgba(197, 160, 89, 0.1);"><b>45%</b> (vs Boutique Agencies)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #EEE;">
-                    <td style="padding: 25px;"><b>Mid-Market</b><br><span style="font-size: 0.8rem; opacity: 0.6;">$5M - $20M Spend</span></td>
-                    <td style="padding: 25px; text-align: center;">5% Platform Fee</td>
-                    <td style="padding: 25px; background: rgba(197, 160, 89, 0.1);"><b>55%</b> (vs AOR + DSP Fees)</td>
-                </tr>
-                <tr>
-                    <td style="padding: 25px;"><b>Enterprise</b><br><span style="font-size: 0.8rem; opacity: 0.6;">$20M+ Spend</span></td>
-                    <td style="padding: 25px; text-align: center;">Custom</td>
-                    <td style="padding: 25px; background: rgba(197, 160, 89, 0.1);"><b>65%</b> (Fraud Elimination)</td>
-                </tr>
+<!-- SLIDE 4: PRICING -->
+<section class="deck-section bg-olive">
+    <div class="max-w-[1400px] w-full mx-auto flex flex-col justify-center h-full">
+        <h4 class="deck-pre text-gold">Partnership Models</h4>
+        <h2 class="deck-head text-[#F1EDE8] mb-10">Transparent Pricing. Tangible ROI.</h2>
+        <div class="bg-white rounded-lg overflow-hidden shadow-2xl">
+            <table class="w-full text-sm text-[#2F3C48]">
+                <thead class="bg-[#2F3C48] text-white">
+                    <tr>
+                        <th class="p-6 text-left uppercase text-xs tracking-widest">Tier</th>
+                        <th class="p-6 text-center uppercase text-xs tracking-widest">Fee Structure</th>
+                        <th class="p-6 text-left uppercase text-xs tracking-widest bg-[#C5A059] text-black">Est. Savings</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr>
+                        <td class="p-8"><b>High Growth</b><br><span class="text-xs opacity-60">$1M - $5M Spend</span></td>
+                        <td class="p-8 text-center">5% Platform Fee</td>
+                        <td class="p-8 bg-[#C5A059]/10 font-bold">45% <span class="text-xs font-normal opacity-70">(vs Boutique Agencies)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="p-8"><b>Mid-Market</b><br><span class="text-xs opacity-60">$5M - $20M Spend</span></td>
+                        <td class="p-8 text-center">5% Platform Fee</td>
+                        <td class="p-8 bg-[#C5A059]/10 font-bold">55% <span class="text-xs font-normal opacity-70">(vs AOR + DSP Fees)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="p-8"><b>Enterprise</b><br><span class="text-xs opacity-60">$20M+ Spend</span></td>
+                        <td class="p-8 text-center">Custom</td>
+                        <td class="p-8 bg-[#C5A059]/10 font-bold">65% <span class="text-xs font-normal opacity-70">(Fraud Elimination)</span></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
-    <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
-<!-- SLIDE 5: TEAM/CLOSE -->
-<section class="slide bg-school">
-  <div class="content-wrapper">
-    <h4 class="header-pre text-gold">Why Us</h4>
-    <h2 class="text-blue">Built by the people who built the plumbing.</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div style="background: white; padding: 30px; border-left: 4px solid var(--gold-leaf); box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-            <h5 class="header-pre text-blue">Ashley Fitzgerald</h5>
-            <p style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">FOUNDER & CEO</p>
-            <p style="font-size: 0.9rem; margin-top: 15px;">Architected the first Social & Web Analytics teams for WPP. Built brand perception infra for Goldman Sachs. Harvard Data Science (Candidate).</p>
-        </div>
-        <div style="display: flex; flex-direction: column; justify-content: center; padding-left: 20px;">
-            <p style="font-family: 'Playfair Display'; font-size: 1.8rem; font-style: italic; color: var(--hague-blue); margin-bottom: 20px;">"To change something, build a new model that makes the existing model obsolete."</p>
-            <button style="background: var(--hague-blue); color: white; border: none; padding: 15px 40px; font-family: 'Inter'; font-weight: 800; text-transform: uppercase; cursor: pointer;">Schedule a Demo</button>
-        </div>
+<!-- SLIDE 5: CLOSE -->
+<section class="deck-section bg-school">
+  <div class="max-w-[1400px] w-full mx-auto grid grid-cols-2 gap-20 items-center h-full">
+    <div class="bg-white p-10 border-l-4 border-[#C5A059] shadow-lg">
+        <h5 class="deck-pre text-[#2F3C48]">Ashley Fitzgerald</h5>
+        <p class="text-xs font-bold opacity-60 mb-4">FOUNDER & CEO</p>
+        <p class="leading-relaxed text-sm">Architected the first Social & Web Analytics teams for WPP. Built brand perception infra for Goldman Sachs. Harvard Data Science (Candidate).</p>
+    </div>
+    <div>
+        <h2 class="deck-head text-[#2F3C48] mb-6">"To change something, build a new model that makes the existing model obsolete."</h2>
+        <button class="bg-[#2F3C48] text-white px-10 py-4 font-black text-xs uppercase tracking-widest hover:bg-[#C5A059] transition-colors">
+            Schedule a Demo
+        </button>
     </div>
   </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
+<!-- ANIMATION LOGIC -->
 <script>
+    // Initialize Icons
     lucide.createIcons();
-    let curSlide = 1;
-    function setSlide(n) {
-        curSlide = n;
-        document.querySelectorAll('.dash-slide').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.dot').forEach(el => el.classList.remove('active'));
-        document.getElementById('slide-' + n).classList.add('active');
-        document.querySelectorAll('.dot')[n-1].classList.add('active');
+
+    // Scene Sequencer
+    let sceneIndex = 1;
+    const totalScenes = 3;
+    
+    function playScenes() {
+        const scenes = [
+            document.getElementById('scene-1'),
+            document.getElementById('scene-2'),
+            document.getElementById('scene-3')
+        ];
         
-        // Retrigger Animations for slide 2 (Gantt)
-        if(n === 2) {
-             const bars = document.querySelectorAll('.gantt-bar');
-             bars.forEach(b => {
-                 b.style.animation = 'none';
-                 b.offsetHeight; /* trigger reflow */
-                 b.style.animation = 'slideIn 0.8s forwards ease-out'; 
-             });
+        // Hide all
+        scenes.forEach(s => s.classList.remove('active'));
+        
+        // Show current
+        const current = scenes[sceneIndex - 1];
+        current.classList.add('active');
+
+        // SCENE 1 SPECIFIC: Animate Button Click
+        if(sceneIndex === 1) {
+            const btn = document.getElementById('auth-btn');
+            const originalContent = btn.innerHTML;
+            setTimeout(() => {
+                btn.classList.remove('pulse-btn');
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                    btn.innerHTML = '<i data-lucide="loader" class="animate-spin" size="12"></i> Processing...';
+                    lucide.createIcons();
+                }, 200);
+            }, 2000);
+            
+            // Reset for next loop
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.add('pulse-btn');
+                lucide.createIcons();
+            }, 5500);
         }
+
+        // SCENE 3 SPECIFIC: Typewriter Effect
+        if(sceneIndex === 3) {
+            const text = document.getElementById('type-text');
+            text.classList.remove('typewriter');
+            void text.offsetWidth; // trigger reflow
+            text.classList.add('typewriter');
+        }
+
+        // Loop Logic
+        sceneIndex = sceneIndex < totalScenes ? sceneIndex + 1 : 1;
+        setTimeout(playScenes, 6000); // Switch every 6 seconds
     }
-    setInterval(() => {
-        curSlide = curSlide < 3 ? curSlide + 1 : 1;
-        setSlide(curSlide);
-    }, 6000); // 6 seconds per slide
+
+    // Start Animation Loop
+    setTimeout(playScenes, 1000);
+
 </script>
 
 </body>
