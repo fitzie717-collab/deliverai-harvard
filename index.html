@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Roku Inventory Enablement Partnership</title>
+<title>DeliverAI | Product Demo & Inventory Scaling</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -12,27 +12,44 @@
   --bancha: #4B4D3B;          /* Deep Olive */
   --hague-blue: #2F3C48;      /* Deep Teal */
   --pointing: #F1F0E8;        /* Off White */
-  --roku-purple: #662D91;     /* Partnership Accent */
+  --roku-purple: #662D91;     /* Roku Brand */
   --gold-leaf: #C5A059;       /* Gold Leaf */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; line-height: 1.6; background: var(--pointing); color: var(--hague-blue); -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', sans-serif; background: var(--pointing); color: var(--hague-blue); -webkit-font-smoothing: antialiased; }
 
-section.slide { min-height: 100vh; width: 100vw; scroll-snap-align: start; position: relative; padding: 6vh 7%; display: flex; flex-direction: column; overflow: hidden; }
-.content-wrapper { width: 100%; max-width: 1400px; margin: 0 auto; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+section.slide { min-height: 100vh; width: 100vw; scroll-snap-align: start; position: relative; padding: 6vh 7%; display: flex; flex-direction: column; justify-content: center; }
+.content-wrapper { width: 100%; max-width: 1400px; margin: 0 auto; }
 
-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; }
+h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; }
+.header-label { font-weight: 800; color: var(--gold-leaf); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: block; margin-bottom: 10px; }
 
-.header-label { font-family: 'Inter', sans-serif; font-weight: 800; color: var(--gold-leaf); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; display: block; margin-bottom: 12px; }
+/* PRODUCT PREVIEW BOX */
+.product-preview {
+    background: #2A3236;
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
 
-.bg-olive { background: var(--bancha); color: var(--pointing); }
-.bg-hague { background: var(--hague-blue); color: var(--pointing); }
-.bg-school { background: #E4DED0; color: var(--hague-blue); }
-
-.feature-box { background: white; padding: 35px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--roku-purple); }
+.scaling-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.scaling-card {
+    background: white;
+    padding: 30px;
+    border-top: 4px solid var(--roku-purple);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
 
 .footer-mark { position: absolute; bottom: 30px; right: 7%; font-size: 0.55rem; letter-spacing: 4px; font-weight: 700; opacity: 0.5; text-transform: uppercase; }
 </style>
@@ -40,90 +57,77 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5re
 
 <body>
 
-<!-- SLIDE 1: THE VISION -->
-<section class="slide bg-olive">
-  <div class="content-wrapper">
-    <h4 class="header-label">A Proposal for Unified Publisher Intelligence</h4>
-    <h1>Enabling Premium Inventory<br><i style="font-weight: 400; opacity: 0.9;">Via Deterministic Validation</i></h1>
-    
-    <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin: 40px 0; max-width: 900px;">
-      <p style="font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 300; line-height: 1.5;">
-        Using the **DeliverAI ID Spine** to solve the dual challenge of Pricing and Yield. 
-        <br><br>
-        We start by optimizing Roku’s internal marketing efficiency, and scale by "blessing" premium inventory units to defend higher rate cards.
-      </p>
-    </div>
-  </div>
-  <div class="footer-mark">DELIVERAI | HARVARD I-LABS</div>
-</section>
-
-<!-- SLIDE 2: THE INTERNAL USE CASE (ROKU FOR ROKU) -->
+<!-- SLIDE 1: THE PRODUCT (THE OPTIMIZER) -->
 <section class="slide bg-school">
   <div class="content-wrapper">
-    <h4 class="header-label" style="color: var(--hague-blue);">Phase 01: Internal Optimization</h4>
-    <h2>Scaling Roku Originals & Devices</h2>
-    <p style="font-size: 1.1rem; max-width: 800px; margin-bottom: 40px; opacity: 0.8;">How DeliverAI’s ID spine helps Roku’s internal marketing team attribute credit for viewer acquisition.</p>
+    <h4 class="header-label" style="color: var(--hague-blue);">The In-Market Arbitrage Engine</h4>
+    <h1>"I built this to solve the 'Content Gap'."</h1>
+    <p style="max-width: 800px; opacity: 0.8;">A real-time operating system that deconstructs creative assets, diagnoses audience fatigue, and reallocates budget to the highest 'Creative Alpha' opportunities.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div class="feature-box">
-            <h5 class="header-label" style="color: var(--roku-purple);">Content Attribution</h5>
-            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--hague-blue);">Linking specific creative assets for *Roku Originals* across Social, Audio, and Web to actual Roku app launches. Identifying which 'Creative DNA' triggers the binge-watch.</p>
+    <!-- Visual Placeholder for your React App -->
+    <div class="product-preview">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 20px;">
+            <b style="color: var(--gold-leaf); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">DeliverAI Optimizer 1.0</b>
+            <span style="font-size: 0.6rem; opacity: 0.5;">LIVE DATA RECONCILIATION</span>
         </div>
-        <div class="feature-box">
-            <h5 class="header-label" style="color: var(--roku-purple);">Marketing Efficiency</h5>
-            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--hague-blue);">Eliminating wasted spend on creative elements that under-perform. Moving from "Total Reach" to "High-Probability Acquisition" for the Roku platform.</p>
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic;">+18.5% <br><span style="font-size: 0.8rem; font-family: 'Inter', sans-serif; font-style: normal; opacity: 0.6; text-transform: uppercase;">Net Forecasted Gain</span></div>
+            <div style="font-size: 0.9rem; line-height: 1.6; opacity: 0.9;">
+                "Shift $150,000 from saturated 'Family Night' campaigns to high-velocity 'Roku City' sponsorships. Creative analysis confirms high novelty in cheese-pull hooks."
+            </div>
         </div>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 3: ENABLING PREMIUM INVENTORY (THE PUBLISHER BENEFIT) -->
-<section class="slide bg-hague">
+<!-- SLIDE 2: THE NEXT PRONG (THE SCALE PLAN) -->
+<section class="slide bg-hague" style="color: white;">
     <div class="content-wrapper">
-        <h4 class="header-label" style="color: var(--gold-leaf);">Phase 02: Revenue Operations</h4>
-        <h2 style="color: white; margin-bottom: 40px;">Defending the Premium Rate Card</h2>
+        <h4 class="header-label" style="color: var(--gold-leaf);">The Next Evolution</h4>
+        <h1>Scaling Inventory Connections</h1>
+        <p style="max-width: 850px; opacity: 0.8; font-size: 1.1rem; margin-top: 20px;">How we move from a campaign tool to a **Standardized Inventory Certification Layer** for the Roku Ad Stack.</p>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div style="background: rgba(255,255,255,0.05); padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-leaf); margin-bottom: 20px;">Inventory Validation</h3>
-                <p style="font-size: 0.95rem; line-height: 1.8; opacity: 0.9;">We use our ID spine to "bless" high-impact inventory like <b>Roku City</b> or <b>Home Screen Takeovers</b>. By proving these spots drive higher transaction velocity, we give RevOps the data to protect premium pricing from CPM commoditization.</p>
+        <div class="scaling-grid">
+            <div class="scaling-card" style="color: var(--hague-blue);">
+                <b style="font-size: 0.6rem; color: var(--roku-purple);">STEP 01</b>
+                <h3>API Certification</h3>
+                <p>DeliverAI integrates into the Roku OneView DSP. Every premium inventory unit (Roku City, Originals) is 'Certified' by our ID Spine to prove deterministic yield.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.05); padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
-                <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-leaf); margin-bottom: 20px;">The Consultative Edge</h3>
-                <p style="font-size: 0.95rem; line-height: 1.8; opacity: 0.9;">Empowering the new <b>Sales Planning</b> team to sell "Creative Alpha." Instead of selling impressions, they sell intelligence: <i>"We've validated that your brand's specific creative DNA performs 3x better on our Premium sponsorship units."</i></p>
+            <div class="scaling-card" style="color: var(--hague-blue);">
+                <b style="font-size: 0.6rem; color: var(--roku-purple);">STEP 02</b>
+                <h3>The High-Alpha PMP</h3>
+                <p>We create a Private Marketplace (PMP) where advertisers can specifically bid on 'Validated High-Yield' spots that match their creative DNA.</p>
+            </div>
+            <div class="scaling-card" style="color: var(--hague-blue);">
+                <b style="font-size: 0.6rem; color: var(--roku-purple);">STEP 03</b>
+                <h3>Yield-Based Pricing</h3>
+                <p>Scaling through the Pricing Engine. Proving that Premium Inventory isn't just 'Reach'—it's a high-probability conversion event, justifying Roku’s rate card at scale.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 4: THE INTEGRATION DISCUSSION -->
-<section class="slide bg-school">
+<!-- SLIDE 3: THE ASK (THE PARTNERSHIP) -->
+<section class="slide">
   <div class="content-wrapper">
-    <h4 class="header-label" style="color: var(--hague-blue);">Strategic Partnership</h4>
-    <h1>Integration & Discussion</h1>
+    <h4 class="header-label" style="color: var(--roku-purple);">The Strategic Ask</h4>
+    <h1>Integration & Inventory Alpha</h1>
     
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px;">
-        <div>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--hague-blue); font-weight: 700;">"How can we integrate DeliverAI’s ID spine into the Roku ecosystem to benefit both the publisher and the advertiser?"</p>
+        <div style="font-size: 1.1rem; line-height: 1.8;">
+            <p><b>1. Internal Validation:</b> Let's use the Optimizer on Roku's internal marketing spend for "Roku Originals."</p>
             <br>
-            <ul style="font-size: 0.95rem; line-height: 2.2; color: var(--hague-blue);">
-                <li>● <b>Internal Pilot:</b> Prove ROAS for one Roku Original.</li>
-                <li>● <b>Inventory Beta:</b> Validate yield for "Roku City" units.</li>
-                <li>● <b>Data Alignment:</b> Privacy-safe S2S integration.</li>
-                <li>● <b>Scale:</b> Automated Intelligence for Sales Planners.</li>
-            </ul>
+            <p><b>2. Inventory Connection:</b> How can we connect my ID Spine to Roku's premium units to <b>Bless the Inventory</b> for external brands?</p>
+            <br>
+            <p><b>3. Scale:</b> How do we productize this so your 100+ Sales Planners can sell "Intelligence Packages" to every top-tier advertiser?</p>
         </div>
-        <div style="background: white; padding: 40px; border-left: 6px solid var(--roku-purple); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-            <h5 class="header-label" style="color: var(--hague-blue);">The Symbiosis:</h5>
-            <p style="font-size: 0.85rem; line-height: 1.8; color: var(--hague-blue);">
-                <b>For Roku:</b> Validated data to justify premium pricing and enable higher yield across the platform.
-                <br><br>
-                <b>For DeliverAI:</b> Strategic access to high-alpha inventory for our clients, creating a virtuous cycle of proof and spend.
-            </p>
+        <div style="background: var(--hague-blue); color: white; padding: 40px; border-radius: 10px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-leaf); margin-bottom: 20px;">The Goal for Roku:</h3>
+            <p style="font-size: 0.9rem; line-height: 1.8;">To move from selling **Commodity Impressions** to selling **Validated Outcomes.** Protecting the premium rate card through a standardized "Creative Alpha" certification layer.</p>
         </div>
     </div>
   </div>
-  <div class="footer-mark">REVENUE OPERATIONS | HARVARD DATA SCIENCE '27</div>
+  <div class="footer-mark">REVENUE OPERATIONS STRATEGY | DELIVERAI</div>
 </section>
 
 </body>
