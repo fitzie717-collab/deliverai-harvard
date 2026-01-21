@@ -65,24 +65,37 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 /* --- STORY ENGINE ANIMATIONS --- */
 .story-scene {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0; transition: opacity 1s ease-in-out;
+    opacity: 0; transition: opacity 0.8s ease-in-out;
     padding: 30px; display: flex; flex-direction: column;
 }
 .story-scene.active { opacity: 1; z-index: 10; }
 
-/* Radar Chart Animation (DNA) */
-.radar-path {
-    stroke-dasharray: 1000; stroke-dashoffset: 1000;
-    animation: draw 2s forwards ease-in-out;
-}
-@keyframes draw { to { stroke-dashoffset: 0; } }
-
 /* Progress Bar */
 .story-progress {
     position: absolute; bottom: 0; left: 0; height: 4px; background: var(--gold-leaf);
-    width: 0; transition: width 6s linear; z-index: 20;
+    width: 0; transition: width 8s linear; z-index: 20;
 }
-.story-scene.active ~ .story-progress { width: 100%; } /* Simple hack for demo loops */
+.story-scene.active ~ .story-progress { width: 100%; }
+
+/* --- CUSTOM VISUALIZATIONS --- */
+/* Scene 2: Timeline */
+.timeline-track { width: 100%; height: 8px; background: #ddd; border-radius: 4px; position: relative; margin-top: 10px; }
+.timeline-segment { position: absolute; height: 100%; top: 0; border-radius: 4px; opacity: 0.7; }
+.timeline-cursor { position: absolute; top: -5px; bottom: -5px; width: 2px; background: #B89354; left: 0; animation: playhead 4s linear infinite; }
+@keyframes playhead { 0% { left: 0; } 100% { left: 100%; } }
+
+/* Scene 3: Pathing */
+.path-node {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: white; border: 2px solid #ddd; position: relative; z-index: 2;
+    transition: all 0.5s;
+}
+.path-node.active { border-color: #B89354; box-shadow: 0 0 20px rgba(184, 147, 84, 0.3); transform: scale(1.1); }
+.path-line {
+    position: absolute; height: 2px; background: #ddd; top: 50%; z-index: 1; transform-origin: left;
+}
+.path-line.fill { background: #B89354; width: 0; transition: width 1s linear; }
 
 </style>
 </head>
@@ -134,7 +147,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 <section class="deck-section pt-[5vh] justify-start bg-[#E4DED0]">
     <div class="text-center mb-6">
         <h4 class="deck-pre text-[#C5A059]">The Workflow</h4>
-        <h2 class="font-serif text-4xl text-[#2F3C48] m-0">From Strategy to Scale in 4 Steps</h2>
+        <h2 class="font-serif text-4xl text-[#2F3C48] m-0">Optimizing The Journey: Creative to Conversion</h2>
     </div>
 
     <div class="macbook">
@@ -142,15 +155,14 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
             <div class="camera-notch"></div>
             <div class="screen-content shadow-inner">
                 
-                <!-- === SCENE 1: STRATEGY (INPUT) === -->
+                <!-- === SCENE 1: CONFIG (Strategy) === -->
                 <div class="story-scene active" id="scene-1">
                     <div class="flex justify-between items-center mb-8 border-b border-[#2A3236]/10 pb-4">
                         <div class="flex items-center gap-2 text-[#B89354]">
                             <i data-lucide="sliders" size="16"></i>
-                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 1: Strategy Configuration</span>
+                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 1: Campaign Configuration</span>
                         </div>
                     </div>
-                    
                     <div class="grid grid-cols-2 gap-12 h-full items-center px-12">
                         <div class="space-y-6">
                             <h1 class="font-serif text-3xl italic text-[#2A3236]">Define Your Campaign.</h1>
@@ -160,8 +172,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                                     <div class="p-4 bg-white border border-[#2A3236]/20 font-serif italic text-lg text-[#2A3236]">Modern Parents (HHI $100k+)</div>
                                 </div>
                                 <div>
-                                    <label class="block text-[0.5rem] font-bold uppercase tracking-widest mb-1 opacity-50">Monthly Budget Cap</label>
-                                    <div class="p-4 bg-white border border-[#2A3236]/20 font-mono text-lg text-[#2A3236]">$50,000.00</div>
+                                    <label class="block text-[0.5rem] font-bold uppercase tracking-widest mb-1 opacity-50">Global Frequency Cap (Cross-Channel)</label>
+                                    <div class="p-4 bg-white border border-[#2A3236]/20 font-mono text-lg text-[#2A3236]">4.0 <span class="text-xs opacity-50 ml-2">(Strict)</span></div>
                                 </div>
                             </div>
                         </div>
@@ -173,144 +185,181 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                     </div>
                 </div>
 
-                <!-- === SCENE 2: INTELLIGENCE (STAR DNA) === -->
+                <!-- === SCENE 2: CREATIVE DNA (Timeline) === -->
                 <div class="story-scene" id="scene-2">
-                     <div class="flex justify-between items-center mb-8 border-b border-[#2A3236]/10 pb-4">
+                     <div class="flex justify-between items-center mb-6 border-b border-[#2A3236]/10 pb-4">
                         <div class="flex items-center gap-2 text-[#B89354]">
                             <i data-lucide="scan-face" size="16"></i>
-                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 2: Creative DNA Analysis</span>
+                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 2: Creative Element Scanning</span>
                         </div>
-                         <div class="text-[0.6rem] font-bold uppercase opacity-50">Processing Asset #402</div>
+                         <div class="text-[0.6rem] font-bold uppercase opacity-50">Analyzing Video Asset #402</div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-8 h-full items-center">
-                        <!-- Radar Chart Area -->
-                        <div class="relative flex items-center justify-center">
-                            <!-- SVG Radar Chart -->
-                            <svg width="300" height="300" viewBox="0 0 100 100" class="overflow-visible">
-                                <!-- Background Grid -->
-                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#2A3236" stroke-width="0.5" stroke-opacity="0.2"/>
-                                <polygon points="50,25 75,37.5 75,62.5 50,75 25,62.5 25,37.5" fill="none" stroke="#2A3236" stroke-width="0.5" stroke-opacity="0.2"/>
-                                <!-- Axis Labels -->
-                                <text x="50" y="-5" text-anchor="middle" font-size="3" fill="#B89354" font-weight="bold" letter-spacing="0.5">SENTIMENT</text>
-                                <text x="105" y="25" text-anchor="start" font-size="3" fill="#B89354" font-weight="bold" letter-spacing="0.5">VELOCITY</text>
-                                <text x="105" y="80" text-anchor="start" font-size="3" fill="#B89354" font-weight="bold" letter-spacing="0.5">AUDIO</text>
-                                <text x="-5" y="80" text-anchor="end" font-size="3" fill="#B89354" font-weight="bold" letter-spacing="0.5">HOOK</text>
-                                <text x="-5" y="25" text-anchor="end" font-size="3" fill="#B89354" font-weight="bold" letter-spacing="0.5">VISUAL</text>
-                                <!-- Data Polygon (The Star) -->
-                                <polygon class="radar-path" points="50,10 90,30 85,70 20,85 15,30" fill="rgba(184, 147, 84, 0.2)" stroke="#B89354" stroke-width="1.5"/>
-                            </svg>
+                    <div class="grid grid-cols-12 gap-6 h-full">
+                        <!-- Left: Visual Player Mockup -->
+                        <div class="col-span-8 flex flex-col justify-center">
+                            <div class="bg-black aspect-video rounded-lg relative overflow-hidden flex items-center justify-center">
+                                <i data-lucide="play-circle" class="text-white opacity-20" size="64"></i>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <div class="timeline-track">
+                                        <div class="timeline-segment bg-green-500" style="left: 0; width: 20%;"></div>
+                                        <div class="timeline-segment bg-yellow-500" style="left: 20%; width: 40%;"></div>
+                                        <div class="timeline-segment bg-blue-500" style="left: 60%; width: 40%;"></div>
+                                        <div class="timeline-cursor"></div>
+                                    </div>
+                                    <div class="flex justify-between mt-2 text-[0.5rem] font-mono text-white/70 uppercase">
+                                        <span>Hook (0-3s)</span>
+                                        <span>Value Prop (3-8s)</span>
+                                        <span>CTA (8-15s)</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="space-y-6">
-                            <h3 class="font-serif text-2xl italic">Asset DNA Detected.</h3>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center border-b border-black/5 pb-2">
-                                    <span class="text-xs font-bold uppercase text-[#2A3236]/60">Pacing</span>
-                                    <span class="text-sm font-bold text-[#B89354]">High Velocity</span>
-                                </div>
-                                <div class="flex justify-between items-center border-b border-black/5 pb-2">
-                                    <span class="text-xs font-bold uppercase text-[#2A3236]/60">Sentiment</span>
-                                    <span class="text-sm font-bold text-[#B89354]">Trust / Authority</span>
-                                </div>
-                                <div class="bg-[#2A3236] p-4 text-white mt-4">
-                                    <p class="text-[0.6rem] uppercase tracking-widest opacity-50 mb-1">Prediction</p>
-                                    <p class="text-lg italic font-serif">"This DNA profile has a 94% probability of success with the 'Modern Parent' segment on Audio channels."</p>
-                                </div>
+                        <!-- Right: DNA Analysis -->
+                        <div class="col-span-4 flex flex-col justify-center space-y-4">
+                            <div class="bg-white p-4 border-l-2 border-[#B89354]">
+                                <span class="text-[0.5rem] font-bold uppercase tracking-widest text-[#B89354]">Hook Velocity</span>
+                                <div class="text-lg font-bold text-[#2A3236]">High (Urgency)</div>
+                                <p class="text-xs opacity-60 leading-snug mt-1">First 3s contains 4 cuts. Matches "High Growth" audience profile.</p>
+                            </div>
+                            <div class="bg-white p-4 border-l-2 border-[#B89354]">
+                                <span class="text-[0.5rem] font-bold uppercase tracking-widest text-[#B89354]">Audio Sentiment</span>
+                                <div class="text-lg font-bold text-[#2A3236]">Trust / Authority</div>
+                                <p class="text-xs opacity-60 leading-snug mt-1">Deep voice, steady cadence. Low fatigue score.</p>
+                            </div>
+                            <div class="bg-[#2A3236] p-4 text-white">
+                                <span class="text-[0.5rem] font-bold uppercase tracking-widest opacity-50">Fatigue Prediction</span>
+                                <div class="text-xl font-serif italic text-[#B89354]">Low Risk</div>
+                                <div class="w-full bg-white/10 h-1 mt-2"><div class="bg-[#B89354] h-full" style="width: 20%"></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- === SCENE 3: MEDIA PLAN (EXECUTION) === -->
+                <!-- === SCENE 3: PATHING (The Golden Path) === -->
                 <div class="story-scene" id="scene-3">
                      <div class="flex justify-between items-center mb-8 border-b border-[#2A3236]/10 pb-4">
                         <div class="flex items-center gap-2 text-[#B89354]">
-                            <i data-lucide="layers" size="16"></i>
-                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 3: Auto-Generated Media Plan</span>
+                            <i data-lucide="git-merge" size="16"></i>
+                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 3: Optimal Pathing & Frequency</span>
                         </div>
                     </div>
 
-                    <div class="space-y-4 px-12 pt-4">
-                        <div class="flex items-center justify-between bg-white p-6 border-l-4 border-[#B89354] shadow-sm">
-                            <div class="flex items-center gap-4">
-                                <div class="bg-[#2A3236] p-3 text-white"><i data-lucide="headphones" size="20"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-sm uppercase tracking-wide">Podcast Audio</h4>
-                                    <p class="text-xs opacity-50">Host Read • Education Category</p>
+                    <div class="relative h-full w-full flex flex-col items-center justify-center">
+                        
+                        <!-- PATHING VISUALIZATION -->
+                        <div class="flex items-center justify-between w-full px-12 relative mb-12">
+                            <!-- Background Lines -->
+                            <div class="absolute top-1/2 left-0 w-full h-1 bg-[#2A3236]/10 -z-10"></div>
+                            
+                            <!-- Node 1: Podcast -->
+                            <div class="flex flex-col items-center gap-4 relative">
+                                <div class="path-node" id="node-1"><i data-lucide="headphones" size="24" class="text-[#2A3236]"></i></div>
+                                <div class="text-center">
+                                    <p class="text-xs font-bold uppercase">Podcast</p>
+                                    <p class="text-[0.6rem] opacity-60">Discovery (Freq: 1)</p>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <span class="block font-serif italic text-xl text-[#B89354]">$25,000</span>
-                                <span class="text-[0.6rem] uppercase font-bold opacity-40">Allocated</span>
+
+                            <!-- Arrow -->
+                            <div class="flex-grow h-1 mx-4 relative overflow-hidden bg-[#2A3236]/5 rounded-full">
+                                <div class="absolute top-0 left-0 h-full bg-[#B89354] w-full origin-left animate-[growLine_2s_ease-in-out_infinite]"></div>
+                            </div>
+
+                            <!-- Node 2: CTV -->
+                            <div class="flex flex-col items-center gap-4">
+                                <div class="path-node" id="node-2"><i data-lucide="tv" size="24" class="text-[#2A3236]"></i></div>
+                                <div class="text-center">
+                                    <p class="text-xs font-bold uppercase">CTV</p>
+                                    <p class="text-[0.6rem] opacity-60">Validation (Freq: 2)</p>
+                                </div>
+                            </div>
+
+                             <!-- Arrow -->
+                            <div class="flex-grow h-1 mx-4 relative overflow-hidden bg-[#2A3236]/5 rounded-full">
+                                <div class="absolute top-0 left-0 h-full bg-[#B89354] w-full origin-left animate-[growLine_2s_ease-in-out_infinite_1s]"></div>
+                            </div>
+
+                            <!-- Node 3: Conversion -->
+                            <div class="flex flex-col items-center gap-4">
+                                <div class="path-node bg-[#B89354] border-none text-white" id="node-3"><i data-lucide="shopping-bag" size="24"></i></div>
+                                <div class="text-center">
+                                    <p class="text-xs font-bold uppercase text-[#B89354]">Conversion</p>
+                                    <p class="text-[0.6rem] opacity-60">Mobile Web</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-between bg-white p-6 border-l-4 border-[#2A3236] shadow-sm opacity-60">
-                            <div class="flex items-center gap-4">
-                                <div class="bg-[#2A3236] p-3 text-white"><i data-lucide="tv" size="20"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-sm uppercase tracking-wide">Connected TV</h4>
-                                    <p class="text-xs opacity-50">Hulu • Documentary Genre</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="block font-serif italic text-xl text-[#2A3236]">$15,000</span>
-                                <span class="text-[0.6rem] uppercase font-bold opacity-40">Allocated</span>
-                            </div>
+                        <!-- BLOCKED PATH (WASTE) -->
+                        <div class="absolute bottom-10 flex gap-4 items-center bg-[#A16B6B]/10 px-6 py-3 rounded-full border border-[#A16B6B]/30">
+                            <i data-lucide="ban" size="14" class="text-[#A16B6B]"></i>
+                            <span class="text-[0.6rem] font-bold uppercase text-[#A16B6B] tracking-widest">Blocked Path: Social Spam (Freq > 8)</span>
                         </div>
                         
-                        <div class="text-center mt-8">
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B89354] animate-pulse"> deploying budget to exchanges...</p>
+                        <!-- FREQUENCY MONITOR -->
+                        <div class="absolute top-0 right-0 bg-white p-4 shadow-lg border-l-4 border-[#B89354]">
+                            <p class="text-[0.5rem] font-bold uppercase tracking-widest opacity-50">Global Frequency</p>
+                            <p class="text-2xl font-mono font-bold text-[#2A3236]">3.2 <span class="text-sm opacity-40">/ 4.0</span></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- === SCENE 4: RESULTS (THE LEDGER) === -->
+                <!-- === SCENE 4: RESULTS (Cross-Channel) === -->
                 <div class="story-scene bg-[#2A3236] text-[#F1EDE8]" id="scene-4">
                      <div class="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
                         <div class="flex items-center gap-2 text-[#B89354]">
-                            <i data-lucide="bar-chart-3" size="16"></i>
-                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 4: Attribution Ledger</span>
+                            <i data-lucide="network" size="16"></i>
+                            <span class="text-[0.6rem] font-sans font-black uppercase tracking-widest">Step 4: Cross-Channel Ledger</span>
                         </div>
-                        <div class="text-[0.6rem] font-bold uppercase opacity-50">Live Results</div>
+                        <div class="text-[0.6rem] font-bold uppercase opacity-50">Attribution Window: 7 Day</div>
                     </div>
 
-                    <table class="w-full text-left">
-                        <thead class="bg-black/20 text-[0.5rem] font-sans font-black uppercase tracking-widest text-[#B89354]">
-                            <tr>
-                                <th class="p-4 font-normal opacity-70">Campaign Name</th>
-                                <th class="p-4 font-normal opacity-70 text-center">iROAS</th>
-                                <th class="p-4 font-normal opacity-70">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-white/5 text-sm">
-                            <tr class="bg-white/5">
-                                <td class="p-4">
-                                    <h4 class="text-lg font-serif italic">Modern Parents (Audio)</h4>
-                                </td>
-                                <td class="p-4 text-center"><span class="text-2xl font-serif font-bold text-[#B89354]">4.8x</span></td>
-                                <td class="p-4">
-                                    <span class="bg-[#B89354] text-[#2A3236] px-2 py-1 text-[0.5rem] font-black uppercase tracking-widest rounded-sm">Scaling</span>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td class="p-4">
-                                    <h4 class="text-lg font-serif italic">Modern Parents (CTV)</h4>
-                                </td>
-                                <td class="p-4 text-center"><span class="text-2xl font-serif font-bold text-white">3.1x</span></td>
-                                <td class="p-4">
-                                    <span class="bg-white/20 text-white px-2 py-1 text-[0.5rem] font-black uppercase tracking-widest rounded-sm">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="mt-auto bg-[#B89354]/10 border border-[#B89354] p-4 flex gap-4 items-center">
-                        <i data-lucide="check-circle" class="text-[#B89354]"></i>
-                        <div>
-                            <p class="text-xs font-bold uppercase tracking-widest text-[#B89354]">Outcome Verified</p>
-                            <p class="text-sm italic opacity-80">Campaign exceeded ROAS target by 60% using Predicted Creative DNA.</p>
+                    <div class="h-full flex flex-col justify-center">
+                        <table class="w-full text-left">
+                            <thead class="text-[0.5rem] font-sans font-black uppercase tracking-widest text-[#B89354] border-b border-white/10">
+                                <tr>
+                                    <th class="p-4 font-normal opacity-70">Channel Path</th>
+                                    <th class="p-4 font-normal opacity-70 text-center">Touchpoints</th>
+                                    <th class="p-4 font-normal opacity-70 text-right">Attributed ROAS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5 text-sm">
+                                <tr class="bg-white/5">
+                                    <td class="p-4">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="headphones" size="14" class="opacity-70"></i> 
+                                            <span class="opacity-50 text-xs">→</span> 
+                                            <i data-lucide="tv" size="14" class="text-white"></i>
+                                            <span class="opacity-50 text-xs">→</span>
+                                            <span class="font-bold">Conversion</span>
+                                        </div>
+                                    </td>
+                                    <td class="p-4 text-center text-xs opacity-70">3 Exposures</td>
+                                    <td class="p-4 text-right font-serif font-bold text-[#B89354] text-lg">5.2x</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4">
+                                        <div class="flex items-center gap-2 opacity-50">
+                                            <i data-lucide="instagram" size="14"></i> 
+                                            <span class="opacity-50 text-xs">→</span> 
+                                            <span class="font-bold">Conversion</span>
+                                        </div>
+                                    </td>
+                                    <td class="p-4 text-center text-xs opacity-50">12 Exposures</td>
+                                    <td class="p-4 text-right font-serif font-bold text-white/50 text-lg">1.4x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="mt-8 p-6 bg-[#B89354]/10 border border-[#B89354] flex gap-4 items-center">
+                            <i data-lucide="zap" class="text-[#B89354]"></i>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-[#B89354]">The "Cross-Channel" Effect</p>
+                                <p class="text-sm italic opacity-80 leading-relaxed">
+                                    By capping Social frequency and introducing Podcast audio, we lowered CPA by <span class="text-white font-bold">34%</span> while increasing trust.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -404,21 +453,21 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
         progressBar.style.transition = 'none';
         progressBar.style.width = '0';
         void progressBar.offsetWidth; // Force Reflow
-        progressBar.style.transition = 'width 6s linear';
+        progressBar.style.transition = 'width 8s linear';
         progressBar.style.width = '100%';
 
-        // Special Animation Triggers for Scenes
-        if (storyIndex === 2) {
-            // Re-trigger DNA Drawing
-            const path = document.querySelector('.radar-path');
-            path.style.animation = 'none';
-            void path.offsetWidth;
-            path.style.animation = 'draw 2s forwards ease-in-out';
+        // Scene 3 Special: Trigger Path Animations
+        if (storyIndex === 3) {
+            document.getElementById('node-1').classList.add('active');
+            setTimeout(() => document.getElementById('node-2').classList.add('active'), 2000);
+            setTimeout(() => document.getElementById('node-3').classList.add('active'), 4000);
+        } else {
+             document.querySelectorAll('.path-node').forEach(n => n.classList.remove('active'));
         }
 
         // Loop Logic
         storyIndex = storyIndex < totalStoryScenes ? storyIndex + 1 : 1;
-        setTimeout(playStory, 6000); // 6 Seconds per Step
+        setTimeout(playStory, 8000); // 8 Seconds per Step for readability
     }
 
     // Start
