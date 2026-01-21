@@ -14,9 +14,9 @@
 /* --- DESIGN SYSTEM TOKENS --- */
 :root {
   --bancha: #4B4D3B;
-  --hague-blue: #2F3C48; /* Your Dark Theme Background */
-  --pointing: #F1F0E8;   /* Your Light Background */
-  --gold-leaf: #C5A059;  /* Your Accent Color */
+  --hague-blue: #2F3C48;
+  --pointing: #F1F0E8;
+  --gold-leaf: #C5A059;
   --text-dark: #1a1a1a;
 }
 
@@ -248,16 +248,9 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                     <div class="h-full grid grid-cols-12 gap-0">
                         <!-- Video Player (Left 8 cols) -->
                         <div class="col-span-8 bg-black relative flex items-center justify-center overflow-hidden">
-                            <!-- PLACEHOLDER VIDEO TAG: -->
-                            <!-- TO USE YOUR REAL VIDEO, PLACE 'Content_Mix_Model_Explained.mp4' IN THE SAME FOLDER AND UNCOMMENT BELOW -->
-                            <!-- <video id="ad-video" src="Content_Mix_Model_Explained.mp4" class="w-full h-full object-cover" loop muted></video> -->
+                            <!-- VIDEO TAG UNCOMMENTED FOR PRODUCTION -->
+                            <video id="ad-video" src="Content_Mix_Model_Explained.mp4" class="w-full h-full object-cover" loop muted playsinline autoplay></video>
                             
-                            <!-- Placeholder visual if video missing -->
-                            <div id="video-placeholder" class="text-center">
-                                <i data-lucide="play-circle" class="text-white/20 mx-auto mb-4" size="64"></i>
-                                <p class="text-white/40 text-xs font-mono">Simulating: Content_Mix_Model_Explained.mp4</p>
-                            </div>
-
                             <!-- Overlay UI -->
                             <div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                                 <span class="text-[0.6rem] text-white font-bold uppercase tracking-widest flex items-center gap-2">
