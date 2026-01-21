@@ -156,16 +156,11 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
   </div>
 </section>
 
-<!-- SLIDE 3: THE DEMO (SOLUTION) -->
+<!-- SLIDE 3: THE DEMO (NARRATIVE ARC) -->
 <section class="deck-section pt-[5vh] justify-start bg-[#E4DED0]">
-    <div class="text-center mb-6 max-w-4xl mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">The Solution</h4>
-        <h2 class="font-serif text-3xl text-[#2F3C48] m-0 leading-tight">Patent pending data collection that matches ad exposures across formats, channels, and devices at the individual level, to unlock never-before-seen insights and media plans.</h2>
-    </div>
-
-    <!-- HEADER FOR DEMO -->
-    <div class="flex items-center justify-center gap-2 mb-4 text-[#2F3C48]/60 text-xs font-bold uppercase tracking-widest">
-        <i data-lucide="refresh-ccw" size="12"></i> The Closed Loop Ecosystem
+    <div class="text-center mb-6">
+        <h4 class="deck-pre text-[#C5A059]">The Workflow</h4>
+        <h2 class="font-serif text-4xl text-[#2F3C48] m-0">End-to-End Optimization</h2>
     </div>
 
     <div class="macbook">
@@ -173,8 +168,52 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
             <div class="camera-notch"></div>
             <div class="screen-content shadow-inner">
                 
-                <!-- === SCENE 1: AUDIENCE JOURNEY (REVERTED) === -->
-                <div class="story-scene bg-[#F1EDE8] text-[#2F3C48] active" id="scene-1">
+                <!-- === SCENE 1: INGESTION & ANALYSIS === -->
+                <div class="story-scene bg-[#111] text-[#F1EDE8] active" id="scene-1">
+                     <div class="h-full grid grid-cols-12">
+                        <!-- Left: Visual Scanning -->
+                        <div class="col-span-8 relative bg-black border-r border-white/10 flex items-center justify-center overflow-hidden">
+                            <i data-lucide="file-video" size="64" class="text-white/20"></i>
+                            <div class="scan-line"></div>
+                            <div class="absolute bottom-6 left-6 font-mono text-xs text-[#C5A059]">
+                                > INGESTING: Content_Mix_Model.mp4<br>
+                                > FRAME RATE: 60fps<br>
+                                > AUDIO CHANNEL: Stereo<br>
+                                > DURATION: 00:42
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Tag Generation -->
+                        <div class="col-span-4 p-8 flex flex-col justify-center space-y-6">
+                            <h3 class="text-[#C5A059] font-serif italic text-2xl">AI Auto-Tagging</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-[0.6rem] uppercase font-bold opacity-50 mb-2">Visual Composition</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-white/10 px-3 py-1 rounded-full text-xs tag-pop" style="animation-delay: 0.5s">High Velocity</span>
+                                        <span class="bg-white/10 px-3 py-1 rounded-full text-xs tag-pop" style="animation-delay: 0.7s">Founder-Led</span>
+                                        <span class="bg-white/10 px-3 py-1 rounded-full text-xs tag-pop" style="animation-delay: 0.9s">UGC Style</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-[0.6rem] uppercase font-bold opacity-50 mb-2">Audio Sentiment</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-white/10 px-3 py-1 rounded-full text-xs tag-pop" style="animation-delay: 1.2s">Trust</span>
+                                        <span class="bg-white/10 px-3 py-1 rounded-full text-xs tag-pop" style="animation-delay: 1.4s">Educational</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="nextScene()" class="mt-8 w-full bg-[#C5A059] text-[#1a1a1a] py-3 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors">
+                                Analysis Complete →
+                            </button>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- === SCENE 2: AUDIENCE JOURNEY === -->
+                <div class="story-scene bg-[#F1EDE8] text-[#2F3C48]" id="scene-2">
                     <div class="p-8 h-full flex flex-col">
                         <div class="flex justify-between items-center mb-8">
                             <h2 class="font-serif italic text-3xl">Audience Journey Mapping</h2>
@@ -207,26 +246,16 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                             </div>
                         </div>
 
-                        <div class="mt-auto text-center relative">
-                            
-                            <!-- PULSING CLICK INDICATOR -->
-                            <div class="absolute left-1/2 transform -translate-x-[180px] top-4 flex items-center gap-2 pointer-events-none">
-                                <span class="relative flex h-3 w-3">
-                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C5A059] opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-3 w-3 bg-[#C5A059]"></span>
-                                </span>
-                                <span class="text-[0.6rem] font-bold text-[#C5A059] uppercase tracking-widest">Click Here to Start</span>
-                            </div>
-
-                            <button onclick="nextScene()" class="bg-[#2F3C48] text-white px-8 py-4 font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-2 mx-auto shadow-xl">
-                                Analyze Causal DNA <i data-lucide="arrow-right" class="inline" size="14"></i>
+                        <div class="mt-auto text-center">
+                            <button onclick="nextScene()" class="bg-[#2F3C48] text-white px-8 py-4 font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform">
+                                View Causal DNA <i data-lucide="arrow-right" class="inline ml-2" size="14"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- === SCENE 2: CAUSAL DNA === -->
-                <div class="story-scene bg-[#1a1a1a] text-[#F1EDE8]" id="scene-2">
+                <!-- === SCENE 3: CAUSAL DNA === -->
+                <div class="story-scene bg-[#1a1a1a] text-[#F1EDE8]" id="scene-3">
                     <div class="p-8 h-full grid grid-cols-2 gap-12">
                         <!-- Left: Narrative -->
                         <div class="flex flex-col justify-center space-y-6">
@@ -241,8 +270,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                             <p class="text-sm opacity-60 leading-relaxed">
                                 Resonance with 'UGC Style' content signals a rejection of polished corporate messaging. The playbook: empower creators to speak for you.
                             </p>
-                            <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-xs uppercase tracking-widest mt-4 hover:bg-white transition-colors flex items-center gap-2">
-                                Generate Media Plan <i data-lucide="mouse-pointer-2" size="12"></i>
+                            <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-xs uppercase tracking-widest mt-4 hover:bg-white transition-colors">
+                                Generate Media Plan
                             </button>
                         </div>
 
@@ -263,8 +292,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                     </div>
                 </div>
 
-                <!-- === SCENE 3: EXECUTION (VIDEO + MEDIA PLAN) === -->
-                <div class="story-scene bg-[#F1EDE8]" id="scene-3">
+                <!-- === SCENE 4: EXECUTION (VIDEO + MEDIA PLAN) === -->
+                <div class="story-scene bg-[#F1EDE8]" id="scene-4">
                     <div class="h-full grid grid-cols-12 gap-0">
                         <!-- Video Player (Left 8 cols) -->
                         <div class="col-span-8 bg-black relative flex items-center justify-center overflow-hidden">
@@ -344,8 +373,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                                     <span>Total Investment</span>
                                     <span>$35,000</span>
                                 </div>
-                                <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-3 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
-                                    Execute Buy (API) <i data-lucide="arrow-right" size="12"></i>
+                                <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-3 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg">
+                                    Execute Buy (API)
                                 </button>
                             </div>
 
@@ -353,8 +382,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                     </div>
                 </div>
 
-                <!-- === SCENE 4: LEDGER === -->
-                <div class="story-scene bg-[#111] text-[#F1EDE8]" id="scene-4">
+                <!-- === SCENE 5: LEDGER === -->
+                <div class="story-scene bg-[#111] text-[#F1EDE8]" id="scene-5">
                     <div class="p-8 h-full flex flex-col">
                         <div class="flex justify-between items-end mb-8">
                             <div>
@@ -469,3 +498,4 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 
 </body>
 </html>
+
