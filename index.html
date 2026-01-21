@@ -50,7 +50,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 }
 .screen-content {
     background: #111; 
-    aspect-ratio: 16/9; /* CHANGED TO 16:9 TO FIT VIDEO PERFECTLY */
+    aspect-ratio: 16/9;
     width: 100%; position: relative; overflow: hidden;
     border-radius: 4px 4px 0 0;
 }
@@ -69,20 +69,18 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 }
 .story-scene.active { opacity: 1; z-index: 10; pointer-events: auto; }
 
-/* Scanning Animations */
+/* Animations */
 .scan-line {
     position: absolute; top: 0; left: 0; width: 100%; height: 2px;
     background: #C5A059; box-shadow: 0 0 15px #C5A059;
     animation: scanDown 3s infinite linear;
     z-index: 20;
 }
-@keyframes scanDown { 0% { top: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+@keyframes scanDown { 0% { top: 0%; opacity: 0; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 
-/* Tag Generation Animation */
 .tag-pop { opacity: 0; transform: scale(0.8); animation: popIn 0.5s forwards; }
 @keyframes popIn { to { opacity: 1; transform: scale(1); } }
 
-/* Radar Chart Animation */
 .radar-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2s forwards ease-in-out; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 
@@ -150,7 +148,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
             <div class="camera-notch"></div>
             <div class="screen-content shadow-inner">
                 
-                <!-- === SCENE 1: INGESTION & ANALYSIS (NEW) === -->
+                <!-- === SCENE 1: INGESTION & ANALYSIS === -->
                 <div class="story-scene bg-[#111] text-[#F1EDE8] active" id="scene-1">
                      <div class="h-full grid grid-cols-12">
                         <!-- Left: Visual Scanning -->
@@ -277,9 +275,8 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                 <!-- === SCENE 4: EXECUTION (VIDEO + MEDIA PLAN) === -->
                 <div class="story-scene bg-[#F1EDE8]" id="scene-4">
                     <div class="h-full grid grid-cols-12 gap-0">
-                        <!-- Video Player (Left 8 cols) - 16:9 RATIO -->
+                        <!-- Video Player (Left 8 cols) -->
                         <div class="col-span-8 bg-black relative flex items-center justify-center overflow-hidden">
-                            <!-- VIDEO ELEMENT -->
                             <video id="ad-video" src="Content_Mix_Model_Explained.mp4" class="w-full h-full object-contain" loop muted playsinline autoplay></video>
                             
                             <!-- Overlay UI -->
@@ -291,43 +288,76 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                         </div>
 
                         <!-- Buying Interface (Right 4 cols) -->
-                        <div class="col-span-4 bg-[#2F3C48] p-6 text-white flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-[#C5A059] font-serif italic text-xl mb-6">Optimization Mix</h3>
-                                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-white/10">
-                                    <div class="bg-white/10 p-2 rounded"><i data-lucide="tv" size="18"></i></div>
-                                    <div class="flex-grow">
-                                        <div class="text-xs font-bold uppercase">Connected TV</div>
-                                        <div class="text-[0.6rem] opacity-50">Hulu, Peacock (Freq: 2)</div>
-                                    </div>
-                                    <div class="font-mono text-[#C5A059]">$15k</div>
-                                </div>
-                                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-white/10">
-                                    <div class="bg-white/10 p-2 rounded"><i data-lucide="headphones" size="18"></i></div>
-                                    <div class="flex-grow">
-                                        <div class="text-xs font-bold uppercase">Audio</div>
-                                        <div class="text-[0.6rem] opacity-50">Host Read (Freq: 3)</div>
-                                    </div>
-                                    <div class="font-mono text-[#C5A059]">$12k</div>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <div class="bg-white/10 p-2 rounded"><i data-lucide="instagram" size="18"></i></div>
-                                    <div class="flex-grow">
-                                        <div class="text-xs font-bold uppercase">Social</div>
-                                        <div class="text-[0.6rem] opacity-50">Retargeting Only</div>
-                                    </div>
-                                    <div class="font-mono text-[#C5A059]">$8k</div>
+                        <div class="col-span-4 bg-[#2F3C48] p-6 text-white flex flex-col h-full overflow-hidden">
+                            
+                            <!-- Header -->
+                            <div class="mb-4 border-b border-white/10 pb-4">
+                                <h3 class="text-[#C5A059] font-serif italic text-xl">Generated Media Plan</h3>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-[0.6rem] uppercase font-bold opacity-60">Flight: Oct 01 - Nov 15, 2026</span>
+                                    <span class="bg-[#4ade80]/10 text-[#4ade80] text-[0.5rem] px-2 py-0.5 rounded uppercase font-bold tracking-wider">Ready to Book</span>
                                 </div>
                             </div>
-                            <div>
+
+                            <!-- Scrollable List -->
+                            <div class="flex-grow space-y-4 overflow-y-auto pr-1">
+                                <!-- Item 1: Roku -->
+                                <div class="bg-black/20 p-3 rounded border border-white/5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="tv" size="14" class="text-[#C5A059]"></i>
+                                            <span class="text-[0.65rem] font-bold uppercase">Roku (OneView)</span>
+                                        </div>
+                                        <span class="font-mono text-[#C5A059] text-xs">$15,000</span>
+                                    </div>
+                                    <div class="bg-[#111] p-2 rounded flex items-center justify-between">
+                                         <code class="text-[0.45rem] text-white/50 font-mono tracking-tighter">utm_src=roku&cam=genz_trust_v1...</code>
+                                         <i data-lucide="check-circle" size="10" class="text-[#4ade80]"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Item 2: Audio -->
+                                <div class="bg-black/20 p-3 rounded border border-white/5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="headphones" size="14" class="text-[#C5A059]"></i>
+                                            <span class="text-[0.65rem] font-bold uppercase">Spotify Audience</span>
+                                        </div>
+                                        <span class="font-mono text-[#C5A059] text-xs">$12,000</span>
+                                    </div>
+                                    <div class="bg-[#111] p-2 rounded flex items-center justify-between">
+                                         <code class="text-[0.45rem] text-white/50 font-mono tracking-tighter">utm_src=spot&cam=genz_trust_v1...</code>
+                                         <i data-lucide="check-circle" size="10" class="text-[#4ade80]"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Item 3: Social -->
+                                <div class="bg-black/20 p-3 rounded border border-white/5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="instagram" size="14" class="text-[#C5A059]"></i>
+                                            <span class="text-[0.65rem] font-bold uppercase">Social Retargeting</span>
+                                        </div>
+                                        <span class="font-mono text-[#C5A059] text-xs">$8,000</span>
+                                    </div>
+                                    <div class="bg-[#111] p-2 rounded flex items-center justify-between">
+                                         <code class="text-[0.45rem] text-white/50 font-mono tracking-tighter">utm_src=ig&cam=genz_trust_v1...</code>
+                                         <i data-lucide="check-circle" size="10" class="text-[#4ade80]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="mt-4 pt-4 border-t border-white/10">
                                 <div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2 opacity-50">
-                                    <span>Total Budget</span>
+                                    <span>Total Investment</span>
                                     <span>$35,000</span>
                                 </div>
-                                <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors">
-                                    Execute Buy
+                                <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-3 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg">
+                                    Execute Buy (API)
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -462,17 +492,10 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     const totalScenes = 5;
     
     function nextScene() {
-        // Remove active class from current
         document.getElementById(`scene-${currentScene}`).classList.remove('active');
-        
-        // Increment
         currentScene = currentScene < totalScenes ? currentScene + 1 : 1;
-        
-        // Add active class to next
-        const next = document.getElementById(`scene-${currentScene}`);
-        next.classList.add('active');
+        document.getElementById(`scene-${currentScene}`).classList.add('active');
 
-        // Logic for Scene 4 (Video Play)
         if(currentScene === 4) {
             const video = document.getElementById('ad-video');
             if(video) {
@@ -487,9 +510,6 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
         currentScene = 1;
         document.getElementById('scene-1').classList.add('active');
     }
-
-    // Optional: Auto-start flow after 3 seconds if user doesn't click
-    // setTimeout(nextScene, 4000); 
 </script>
 
 </body>
