@@ -358,173 +358,116 @@
     </section>
 
 
-    <!-- 
-        SLIDE 3: THE SOLUTION & INTERACTIVE DEMO
-    -->
+    <!-- SLIDE 3: INTERACTIVE DEMO (RESIZED NAV) -->
     <section class="deck-section bg-[#E4DED0] text-[#2F3C48]">
-        <!-- SOLUTION HEADER -->
-        <div class="max-w-5xl mx-auto text-center mb-12 pt-10">
+        <div class="max-w-5xl mx-auto text-center mb-12 pt-10 px-4">
             <h4 class="deck-pre text-[#C5A059]">The Solution</h4>
-            <h2 class="font-serif text-2xl md:text-3xl leading-snug px-4">
-                A patent-pending operating system that leverages novel data collection to match ad exposures across formats, channels, and devices at the individual level. Our web-based application delivers breakthrough insights, generates media plans, and execute buying; giving brands world-class agency capabilities at their fingertips. 
+            <h2 class="font-serif text-2xl md:text-3xl leading-snug">
+                The Operating System that unlocks never-before-seen insights to generate creative recommendations and execute the strongest buys.
             </h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-[1400px] mx-auto w-full flex-grow items-center">
-            
-            <!-- LEFT: NAVIGATION STEPS -->
-            <div class="hidden lg:flex col-span-3 flex-col gap-8">
+            <!-- LARGE STEP NAVIGATION -->
+            <div class="hidden lg:flex col-span-3 flex-col gap-10">
                 <div class="step-indicator active" id="nav-1">
-                    <span class="font-serif italic text-2xl text-[#C5A059]">01</span>
-                    <h5 class="font-black text-[10px] uppercase tracking-widest mt-1">Ingestion</h5>
-                    <p class="text-[10px] opacity-60">AI Digital Fingerprinting</p>
+                    <span class="font-serif italic text-[#C5A059]">01</span>
+                    <h5 class="uppercase tracking-widest">Ingestion</h5>
                 </div>
                 <div class="step-indicator" id="nav-2">
-                    <span class="font-serif italic text-2xl text-[#C5A059]">02</span>
-                    <h5 class="font-black text-[10px] uppercase tracking-widest mt-1">Tracking</h5>
-                    <p class="text-[10px] opacity-60">Cross-Device Exposure</p>
+                    <span class="font-serif italic text-[#C5A059]">02</span>
+                    <h5 class="uppercase tracking-widest">Tracking</h5>
                 </div>
                 <div class="step-indicator" id="nav-3">
-                    <span class="font-serif italic text-2xl text-[#C5A059]">03</span>
-                    <h5 class="font-black text-[10px] uppercase tracking-widest mt-1">Intelligence</h5>
-                    <p class="text-[10px] opacity-60">Creative Element DNA</p>
+                    <span class="font-serif italic text-[#C5A059]">03</span>
+                    <h5 class="uppercase tracking-widest">Intelligence</h5>
                 </div>
                 <div class="step-indicator" id="nav-4">
-                    <span class="font-serif italic text-2xl text-[#C5A059]">04</span>
-                    <h5 class="font-black text-[10px] uppercase tracking-widest mt-1">Optimization</h5>
-                    <p class="text-[10px] opacity-60">Automated Media Buying</p>
+                    <span class="font-serif italic text-[#C5A059]">04</span>
+                    <h5 class="uppercase tracking-widest">Optimization</h5>
                 </div>
                 <div class="step-indicator" id="nav-5">
-                    <span class="font-serif italic text-2xl text-[#C5A059]">05</span>
-                    <h5 class="font-black text-[10px] uppercase tracking-widest mt-1">Results</h5>
-                    <p class="text-[10px] opacity-60">Performance Reconciliation</p>
+                    <span class="font-serif italic text-[#C5A059]">05</span>
+                    <h5 class="uppercase tracking-widest">Results</h5>
                 </div>
             </div>
 
-            <!-- RIGHT: THE MACBOOK INTERFACE -->
+            <!-- MACBOOK INTERFACE -->
             <div class="col-span-1 lg:col-span-9">
                 <div class="macbook-container">
                     <div class="mac-screen-outer">
                         <div class="mac-notch"></div>
                         <div class="mac-screen-inner">
-                            
-                            <!-- SCENE 1: INGESTION -->
                             <div class="story-scene active bg-[#0a0a0a]" id="scene-1">
                                 <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-                                    <div class="relative bg-black border-r border-white/5 flex items-center justify-center overflow-hidden">
+                                    <div class="relative bg-black flex items-center justify-center overflow-hidden">
                                         <i data-lucide="video" size="80" class="text-white/10"></i>
                                         <div class="scan-line"></div>
-                                        <div class="absolute top-4 left-4 flex gap-2">
-                                            <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                                            <span class="text-[8px] font-mono text-white/40 uppercase">Analyzing Asset_V4.mp4</span>
-                                        </div>
                                     </div>
-                                    <div class="p-8 sm:p-12 flex flex-col justify-center text-white">
+                                    <div class="p-12 flex flex-col justify-center text-white">
                                         <h3 class="text-[#C5A059] font-serif italic text-3xl mb-6">AI Asset Ingestion</h3>
-                                        <p class="text-sm text-white/60 mb-8 leading-relaxed">
-                                            The system "watches" the ad to create a high-resolution Digital Fingerprint, identifying visual and emotional triggers automatically.
-                                        </p>
-                                        <button onclick="changeScene(2)" class="bg-[#C5A059] text-black py-4 px-8 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all flex items-center justify-center gap-3">
-                                            Launch Tracker <i data-lucide="crosshair" size="16"></i>
-                                        </button>
+                                        <p class="text-white/60 mb-8 leading-relaxed">System creates a "Digital Fingerprint" of every asset visual and emotional trigger.</p>
+                                        <button onclick="changeScene(2)" class="bg-[#C5A059] text-black py-4 font-black text-xs uppercase tracking-widest">Launch Tracker</button>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- SCENE 2: CROSS DEVICE JOURNEY -->
-                            <div class="story-scene bg-[#F1EDE8] text-[#2F3C48]" id="scene-2">
-                                <div class="p-8 sm:p-12 h-full flex flex-col">
-                                    <div class="flex justify-between items-center mb-12">
-                                        <h4 class="deck-pre text-[#C5A059] mb-0">Step 02: Deterministic Journey</h4>
-                                        <span class="bg-[#2F3C48] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Active ID Matching</span>
+                            <div class="story-scene bg-[#F1EDE8]" id="scene-2">
+                                <div class="p-12 h-full flex flex-col justify-center text-center">
+                                    <h3 class="font-serif italic text-3xl mb-12">Deterministic Journey Mapping</h3>
+                                    <div class="flex justify-center gap-12">
+                                        <div class="flex flex-col items-center gap-2"><i data-lucide="smartphone"></i><span class="text-[10px] font-bold">MOBILE AD</span></div>
+                                        <i data-lucide="arrow-right"></i>
+                                        <div class="flex flex-col items-center gap-2"><i data-lucide="headphones"></i><span class="text-[10px] font-bold">AUDIO RETARGET</span></div>
+                                        <i data-lucide="arrow-right"></i>
+                                        <div class="flex flex-col items-center gap-2"><i data-lucide="shopping-bag"></i><span class="text-[10px] font-bold">CONVERSION</span></div>
                                     </div>
-                                    
-                                    <div class="flex-grow flex items-center justify-center gap-4 sm:gap-12 relative px-4">
-                                        <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-[#2F3C48]/10 -z-0"></div>
-                                        
-                                        <!-- Node 1 -->
-                                        <div class="flex flex-col items-center gap-4 z-10 floating">
-                                            <div class="w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center border border-black/5">
-                                                <i data-lucide="smartphone" size="24"></i>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-[9px] font-black uppercase">Exposed</span>
-                                                <p class="text-[10px] font-serif italic">Mobile Ad</p>
-                                            </div>
-                                        </div>
-
-                                        <i data-lucide="chevron-right" class="text-[#C5A059]" size="20"></i>
-
-                                        <!-- Node 2 -->
-                                        <div class="flex flex-col items-center gap-4 z-10 floating" style="animation-delay: 1s">
-                                            <div class="w-20 h-20 bg-[#2F3C48] text-[#C5A059] rounded-2xl shadow-2xl flex items-center justify-center border-t-2 border-[#C5A059]">
-                                                <i data-lucide="headphones" size="28"></i>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-[9px] font-black uppercase text-[#C5A059]">Retargeted</span>
-                                                <p class="text-[10px] font-serif italic">Audio Ad</p>
-                                            </div>
-                                        </div>
-
-                                        <i data-lucide="chevron-right" class="text-[#C5A059]" size="20"></i>
-
-                                        <!-- Node 3 -->
-                                        <div class="flex flex-col items-center gap-4 z-10 floating" style="animation-delay: 2s">
-                                            <div class="w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center border border-black/5">
-                                                <i data-lucide="shopping-bag" size="24"></i>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-[9px] font-black uppercase">Conversion</span>
-                                                <p class="text-[10px] font-serif italic">Desktop Buy</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <button onclick="changeScene(3)" class="bg-[#2F3C48] text-[#F1F0E8] py-4 px-10 font-black text-xs uppercase tracking-widest hover:bg-[#C5A059] hover:text-black transition-all self-center mt-8">
-                                        Analyze Attribution DNA
-                                    </button>
+                                    <button onclick="changeScene(3)" class="mt-12 bg-[#2F3C48] text-white py-4 px-10 self-center uppercase text-xs font-black">Analyze DNA</button>
                                 </div>
                             </div>
-
-                            <!-- SCENE 3: DNA INTELLIGENCE -->
                             <div class="story-scene bg-[#111] text-white" id="scene-3">
-                                <div class="grid grid-cols-1 md:grid-cols-2 h-full p-8 sm:p-12 items-center gap-12">
-                                    <div>
-                                        <span class="deck-pre text-[#C5A059]">Step 03-05: Intelligence</span>
-                                        <h3 class="text-3xl font-serif italic mb-6">The "Trust" Signal.</h3>
-                                        <p class="text-sm text-white/50 mb-8 leading-relaxed">
-                                            Our AI determined that "Direct-to-Camera Educational" tones drove the conversion—not the high-production "Comedy" spots previously prioritized.
-                                        </p>
-                                        <div class="flex gap-4">
-                                            <div class="bg-white/5 border border-white/10 p-4 rounded flex-1">
-                                                <span class="text-[10px] block opacity-40 uppercase">Creative ROAS</span>
-                                                <span class="text-xl text-[#C5A059] font-serif">4.8x</span>
-                                            </div>
-                                            <div class="bg-white/5 border border-white/10 p-4 rounded flex-1">
-                                                <span class="text-[10px] block opacity-40 uppercase">Visual Trust</span>
-                                                <span class="text-xl text-[#C5A059] font-serif">High</span>
-                                            </div>
-                                        </div>
-                                        <button onclick="changeScene(4)" class="w-full bg-[#C5A059] text-black py-4 font-black text-xs uppercase mt-8 hover:bg-white transition-all">
-                                            Deploy Automated Buy
-                                        </button>
-                                    </div>
-                                    <div class="flex justify-center items-center">
-                                        <svg viewBox="0 0 100 100" class="w-full max-w-[260px] overflow-visible">
-                                            <circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-opacity="0.1" stroke-width="0.5"/>
-                                            <circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-opacity="0.1" stroke-width="0.5"/>
-                                            <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-opacity="0.1" stroke-width="0.5"/>
-                                            
-                                            <!-- Radar Chart -->
-                                            <polygon class="radar-line" points="50,15 85,40 70,85 20,80 15,40" fill="rgba(197, 160, 89, 0.2)" stroke="#C5A059" stroke-width="2"/>
-                                            
-                                            <text x="50" y="8" text-anchor="middle" font-size="4" fill="#C5A059" font-weight="900">TRUST</text>
-                                            <text x="95" y="50" text-anchor="start" font-size="4" fill="white" font-weight="900">REVENUE</text>
-                                            <text x="50" y="98" text-anchor="middle" font-size="4" fill="white" font-weight="400" opacity="0.4">HUMOR</text>
-                                        </svg>
-                                    </div>
+                                <div class="p-12 h-full flex flex-col justify-center">
+                                    <h3 class="text-[#C5A059] font-serif italic text-3xl mb-4">The "Trust" Signal</h3>
+                                    <p class="text-white/50 mb-8">AI determined "Educational" tones drove 4x higher LTV than "Funny" ones.</p>
+                                    <button onclick="changeScene(4)" class="bg-[#C5A059] text-black py-4 uppercase text-xs font-black">Execute Optimized Buy</button>
                                 </div>
                             </div>
+                            <div class="story-scene bg-[#0a0a0a] text-white" id="scene-4">
+                                <div class="p-12 h-full flex flex-col justify-center">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="font-serif italic text-3xl">Auto-Scaling Winners</h3>
+                                        <span class="text-[#C5A059] font-mono animate-pulse">LIVE REALLOCATION</span>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div class="bg-white/5 p-4 flex justify-between"><span>CTV / Roku</span><span class="text-green-400">+$45,000</span></div>
+                                        <div class="bg-white/5 p-4 flex justify-between"><span>Social / TikTok</span><span class="text-red-400">PAUSED</span></div>
+                                    </div>
+                                    <button onclick="changeScene(5)" class="mt-8 bg-white text-black py-4 uppercase text-xs font-black">View Final ROI</button>
+                                </div>
+                            </div>
+                            <div class="story-scene bg-[#111] text-white" id="scene-5">
+                                <div class="p-12 h-full flex flex-col justify-center">
+                                    <h2 class="font-serif italic text-4xl text-[#C5A059] mb-4">4.8x ROAS</h2>
+                                    <p class="mb-10 text-white/60 uppercase tracking-widest text-xs">Campaign Performance Reconciliation</p>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white/5 p-6 rounded">
+                                            <div class="text-[10px] opacity-40 mb-1">WASTE REDUCTION</div>
+                                            <div class="text-2xl font-bold">100%</div>
+                                        </div>
+                                        <div class="bg-white/5 p-6 rounded">
+                                            <div class="text-[10px] opacity-40 mb-1">DATA SPEED</div>
+                                            <div class="text-2xl font-bold">INSTANT</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="changeScene(1)" class="mt-8 text-[9px] opacity-30 uppercase tracking-[0.5em]">Restart Demo ↺</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mac-base"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
                             <!-- SCENE 4: AUTOMATED MEDIA -->
                             <div class="story-scene bg-[#0a0a0a]" id="scene-4">
@@ -833,6 +776,7 @@
 
 </body>
 </html>
+
 
 
 
