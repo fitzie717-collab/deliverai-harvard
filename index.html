@@ -200,8 +200,14 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     </div>
 
     <!-- HEADER FOR DEMO -->
-    <div class="flex items-center justify-center gap-2 mb-4 text-[#2F3C48]/60 text-xs font-bold uppercase tracking-widest">
-        <i data-lucide="refresh-ccw" size="12"></i> The Closed Loop Ecosystem Functionality and User Interface Demo
+    <div class="flex flex-col items-center gap-2 mb-4">
+        <div class="flex items-center justify-center gap-2 text-[#2F3C48]/60 text-xs font-bold uppercase tracking-widest">
+            <i data-lucide="refresh-ccw" size="12"></i> The Closed Loop Ecosystem Functionality and User Interface Demo
+        </div>
+        <!-- INSTRUCTION -->
+        <div class="text-[#C5A059] font-black text-xs uppercase tracking-widest animate-pulse flex items-center gap-2 border border-[#C5A059] px-3 py-1 rounded-full">
+            <i data-lucide="mouse-pointer-2" size="14"></i> Click through action buttons below for demo
+        </div>
     </div>
 
     <div class="macbook">
@@ -246,7 +252,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                                 </div>
                             </div>
 
-                            <button onclick="nextScene()" class="mt-8 w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors relative z-10 shadow-xl">
+                            <button onclick="nextScene()" class="mt-8 w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-xs uppercase tracking-widest hover:bg-white transition-colors relative z-10 shadow-xl border border-[#C5A059]">
                                 Upload Creative for Analysis <i data-lucide="mouse-pointer-2" size="14" class="inline ml-1"></i>
                             </button>
                         </div>
@@ -281,7 +287,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                         </div>
 
                         <div class="mt-auto text-center">
-                            <button onclick="nextScene()" class="bg-[#2F3C48] text-white px-8 py-4 font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-2 mx-auto">
+                            <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-2 mx-auto shadow-xl">
                                 View Causal DNA <i data-lucide="arrow-right" class="inline" size="14"></i>
                             </button>
                         </div>
@@ -507,12 +513,21 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     <div class="bg-white p-10 border-l-4 border-[#C5A059] shadow-lg">
         <h5 class="deck-pre text-[#2F3C48]">Ashley Fitzgerald</h5>
         <p class="text-xs font-bold opacity-60 mb-4">FOUNDER & CEO</p>
-        <p class="leading-relaxed text-sm">
-            A 15-year veteran who built novel data systems for WPP and Goldman Sachs across brand metrics, offline, and digitial. Now solving the industry's biggest blindspot with patent-pending AI. Harvard Data Science (Master's Candidate).
+        <p class="leading-relaxed text-sm mb-6">
+            Ashley Fitzgerald is a data systems builder with 15 years of experience at the edge of emerging media, having built novel measurement solutions across digital, brand, and offline channels for WPP and Goldman Sachs. She is the Founder & CEO of DeliverAI and a Harvard Data Science Master’s candidate.
         </p>
+        <div class="flex flex-col gap-2 pt-4 border-t border-[#2F3C48]/10">
+            <a href="https://deliveraisolutions.com/" target="_blank" class="text-xs font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-2 transition-colors">
+                <i data-lucide="globe" size="14"></i> deliveraisolutions.com
+            </a>
+            <a href="https://www.linkedin.com/in/ashley-fitzgerald-dataexpert/" target="_blank" class="text-xs font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-2 transition-colors">
+                <i data-lucide="linkedin" size="14"></i> linkedin.com/in/ashley-fitzgerald-dataexpert
+            </a>
+        </div>
     </div>
     <div>
-        <h2 class="font-serif text-4xl text-[#2F3C48] mb-6">"To change something, build a new model that makes the existing model obsolete."</h2>
+        <h2 class="font-serif text-3xl text-[#2F3C48] mb-4 italic leading-normal">"You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."</h2>
+        <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-8">— Buckminster Fuller</div>
         <button class="bg-[#2F3C48] text-white px-10 py-4 font-black text-xs uppercase tracking-widest hover:bg-[#C5A059] transition-colors">
             Schedule a Demo
         </button>
